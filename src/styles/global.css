@@ -421,12 +421,15 @@ body::after {
   overflow-x: auto;
   border: 1px solid rgba(102, 204, 255, 0.22);
   background: rgba(6, 10, 20, 0.7);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 204, 255, 0.35) transparent;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.92rem;
+  table-layout: fixed;
 }
 
 th,
@@ -435,6 +438,7 @@ td {
   padding: 0.7em 0.9em;
   border-bottom: 1px solid rgba(102, 204, 255, 0.12);
   vertical-align: top;
+  overflow-wrap: break-word;
 }
 
 thead th {
@@ -444,6 +448,7 @@ thead th {
   text-transform: uppercase;
   color: var(--amber-soft);
   background: rgba(255, 158, 0, 0.06);
+  white-space: normal;
 }
 
 tbody tr {
