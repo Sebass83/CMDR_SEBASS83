@@ -1,0 +1,190 @@
+---
+/**
+ * Hero — RAXXLA masthead with typewriter line, Dark Wheel toast and radar.
+ */
+
+const toastText =
+  '“¡Por la joya que arde en la frente de la madre de las galaxias! ¡Por el susurrante en witch-space, la sirena del vacío más profundo! El duelo del padre, la pena del amante, y el anhelo de nuestros corazones vagabundos. ¡Por Raxxla!”';
+---
+
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <p class="hero-kicker">COMANDER LOG // ENTRADA 001 — REFERENCIA NO OFICIAL</p>
+
+    <h1 class="hero-title">RAXXLA</h1>
+
+    <p class="hero-typewrap">
+      <span class="hero-type" id="typewriter-line" data-text="El misterio más grande de Elite Dangerous."></span><span class="hero-caret" id="typewriter-caret">▍</span>
+    </p>
+
+    <blockquote class="hero-toast" id="hero-toast">
+      <p>{toastText}</p>
+      <footer>— El brindis alegado de la Dark Wheel · Codex en juego (update 3.3)</footer>
+    </blockquote>
+
+    <div class="hero-badge">
+      <span class="badge badge-amber"><span class="dot"></span>Estatus: SIN RESOLVER</span>
+      <span class="badge badge-cyan">Búsqueda: 12+ años</span>
+      <span class="badge badge-slate">Desde: diciembre 2014</span>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn" href="#hechos">Hechos confirmados</a>
+      <a class="btn btn-cyan" href="#leads">Los leads</a>
+    </div>
+  </div>
+
+  <!-- Decorative HUD sensor -->
+  <div class="hero-radar" aria-hidden="true">
+    <div class="radar">
+      <span class="blip" style="top: 30%; left: 62%"></span>
+      <span class="blip" style="top: 64%; left: 30%; animation-delay: 0.8s"></span>
+      <span class="blip" style="top: 48%; left: 48%; animation-delay: 1.6s"></span>
+    </div>
+    <p>SENSOR // RAXXLA&nbsp;&nbsp;—&nbsp;&nbsp;SEÑAL DESCONOCIDA</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: var(--space-5);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .hero-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--cyan-dim);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(3.5rem, 14vw, 8.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.22em;
+    text-indent: 0.22em;
+    color: var(--amber-soft);
+    text-shadow:
+      0 0 40px rgba(255, 158, 0, 0.45),
+      0 0 90px rgba(255, 158, 0, 0.2),
+      2px 0 0 rgba(102, 204, 255, 0.35),
+      -2px 0 0 rgba(255, 122, 26, 0.4);
+    animation: hero-flicker 7s infinite;
+  }
+
+  @keyframes hero-flicker {
+    0%, 91%, 100% { opacity: 1; transform: none; }
+    92% { opacity: 0.86; transform: translate(1px, -1px); }
+    93% { opacity: 0.98; transform: translate(-1px, 1px); }
+    94% { opacity: 0.9; transform: none; }
+    96% { opacity: 1; }
+  }
+
+  .hero-typewrap {
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 2.6vw, 1.35rem);
+    color: var(--white);
+    letter-spacing: 0.08em;
+    min-height: 1.9em;
+  }
+
+  .hero-caret {
+    color: var(--amber);
+    animation: caret-blink 1.1s steps(1) infinite;
+    margin-left: 2px;
+  }
+
+  .hero-caret.done {
+    animation: caret-blink 1.6s ease-in-out infinite;
+  }
+
+  @keyframes caret-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .hero-toast {
+    max-width: 62ch;
+    font-style: italic;
+    color: var(--slate);
+    border-left: 2px solid var(--amber);
+    padding-left: var(--space-3);
+    text-align: left;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  }
+
+  .hero-toast.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-toast footer {
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    color: var(--cyan-dim);
+    margin-top: var(--space-1);
+  }
+
+  .hero-badge {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-1);
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-1);
+  }
+
+  .hero-radar {
+    position: absolute;
+    left: 3vw;
+    bottom: 2.5rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    opacity: 0.55;
+  }
+
+  .hero-radar p {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    color: var(--cyan-dim);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 900px) {
+    .hero-radar { display: flex; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-title { animation: none; }
+    .hero-toast { opacity: 1; transform: none; }
+    .hero-caret { animation: none; }
+  }
+</style>

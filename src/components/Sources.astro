@@ -1,0 +1,85 @@
+---
+/**
+ * Sources — primary research sources.
+ * URLs verbatim from investigacion.md section 8.
+ */
+
+const sources = [
+  { name: 'Fandom — Raxxla (codex + declaraciones)', url: 'https://elite-dangerous.fandom.com/wiki/Raxxla' },
+  { name: 'Canonn Research — Drew Wagar Lore: Raxxla', url: 'https://canonn.science/lore/drewwagar-raxxla/' },
+  { name: 'Canonn Research — The Dark Wheel', url: 'https://canonn.science/lore/drewwagar-the-dark-wheel/' },
+  { name: 'Inara — The Quest for Raxxla (serie, Zer0Cool0, may 2026)', url: 'https://inara.cz/elite/logbook/95366' },
+  { name: 'Inara — “And This Is How You Find Raxxla” (K Dutch, jul 2026)', url: 'https://inara.cz/elite/logbook/96864' },
+  { name: 'Inara — “A new hunt for Raxxla” ANHR (CamaVixen, sep 2025)', url: 'https://inara.cz/elite/logbook/89379' },
+  { name: 'Inara — “The R-Word” (Rawnu, feb 2025)', url: 'https://inara.cz/elite/logbook/85272' },
+  { name: 'Inara — Jester Journalism: Mystery of the Dark Wheel', url: 'https://inara.cz/elite/logbook/88300' },
+  { name: 'Foros Frontier — The Quest To Find Raxxla (hilo oficial 2015+)', url: 'https://forums.frontier.co.uk/threads/the-quest-to-find-raxxla.168253/' },
+  { name: 'EDSM — PMD2009 48 (Orion Nebula Tourist Centre)', url: 'https://www.edsm.net/en/system/id/347921/name/PMD2009%2048' },
+  { name: 'Inara — LFT 926', url: 'https://inara.cz/elite/starsystem/686' },
+  { name: 'Inara — The Dark Wheel (facción)', url: 'https://inara.cz/elite/minorfaction/28704' },
+  { name: 'Steam — RAXXLA Locations (teoría Cassiopeia)', url: 'https://steamcommunity.com/app/359320/discussions/0/1849197902664192462' },
+  { name: 'Reddit — “Raxxla is 100% somewhere in the Bubble”', url: 'https://www.reddit.com/r/EliteDangerous/comments/9y2m7h/' },
+  { name: 'Elitepve — misiones Dark Wheel / SAP 8', url: 'https://elitepve.com/viewtopic.php?t=2452' },
+];
+---
+
+<section id="fuentes">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 06 // ARCHIVO</span>
+      <h2>Fuentes</h2>
+      <p class="sec-sub">
+        Fuentes principales de la investigación: foros oficiales, Inara, EDSM, Canonn Research y la comunidad.
+      </p>
+    </header>
+
+    <ul class="sources">
+      {
+        sources.map((s, i) => (
+          <li class="source-item reveal">
+            <span class="source-idx">{String(i + 1).padStart(2, '0')}</span>
+            <a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .sources {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  .source-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: 0.55em 0.8em;
+    border-left: 2px solid rgba(102, 204, 255, 0.25);
+    background: rgba(6, 10, 20, 0.5);
+    transition: border-color var(--d-fast) ease, background var(--d-fast) ease;
+  }
+
+  .source-item:hover {
+    border-left-color: var(--amber);
+    background: rgba(255, 158, 0, 0.05);
+  }
+
+  .source-idx {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--slate-dim);
+    flex-shrink: 0;
+  }
+
+  .source-item a {
+    word-break: break-word;
+    font-size: 0.95rem;
+  }
+</style>

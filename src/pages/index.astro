@@ -1,0 +1,34 @@
+---
+/**
+ * RAXXLA — page assembly.
+ * All content is sourced from the research docs (raxxla/investigacion.md,
+ * raxxla/expediciones.md, raxxla/README.md). No invented data.
+ */
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Facts from '../components/Facts.astro';
+import Timeline from '../components/Timeline.astro';
+import Leads from '../components/Leads.astro';
+import Matrix from '../components/Matrix.astro';
+import Order from '../components/Order.astro';
+import Sources from '../components/Sources.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Hero />
+  <Facts />
+  <Timeline />
+  <Leads />
+  <Matrix />
+  <Order />
+  <Sources />
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    position: relative;
+    z-index: 1;
+  }
+</style>

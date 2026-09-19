@@ -1,0 +1,112 @@
+---
+/**
+ * Facts — the four hard facts confirmed by Frontier developers,
+ * plus the critical 2.4 permit-lock correction.
+ */
+
+const facts = [
+  {
+    n: '01',
+    badge: 'CONFIRMADO',
+    title: 'Existe y Frontier sabe dónde está',
+    quote: '“Está ahí afuera y nosotros (FD) sabemos dónde está.”',
+    who: 'David Braben — BAFTA, 8 de julio de 2014',
+  },
+  {
+    n: '02',
+    badge: 'CONFIRMADO',
+    title: 'Está en la Vía Láctea',
+    quote: '“Está en la Vía Láctea, pero no puedo decirte dónde. Es un viaje que cada uno tiene que hacer por sí mismo.”',
+    who: 'Michael Brookes — productor ejecutivo (salió de Frontier en 2017)',
+  },
+  {
+    n: '03',
+    badge: 'CONFIRMADO',
+    title: 'Un commander ya estuvo en su sistema',
+    quote: '“El sistema donde está Raxxla fue visitado al menos una vez por un commander. Hicieron el salto y se fueron. O cargaron combustible y siguieron.”',
+    who: 'Michael Brookes — Lavecon 2017 (Q&A, relatado por CMDR Ascorbius)',
+  },
+  {
+    n: '04',
+    badge: 'CONFIRMADO',
+    title: 'No se necesita nave ni rango especial',
+    quote: 'Accesible para cualquier piloto: no existe gating mecánico documentado.',
+    who: 'Michael Brookes',
+  },
+];
+---
+
+<section id="hechos">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 01 // DATOS DUROS</span>
+      <h2>Hechos confirmados</h2>
+      <p class="sec-sub">
+        Cuatro declaraciones oficiales acotan toda búsqueda. Nivel de evidencia: CONFIRMADO, con fuente.
+      </p>
+    </header>
+
+    <div class="facts-grid">
+      {
+        facts.map((f) => (
+          <article class="panel reveal">
+            <header class="fact-head">
+              <span class="fact-num">{f.n}</span>
+              <span class="badge badge-amber">{f.badge}</span>
+            </header>
+            <h3>{f.title}</h3>
+            <p class="fact-quote">{f.quote}</p>
+            <p class="fact-who">{f.who}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="callout reveal" role="note">
+      <span class="callout-ico" aria-hidden="true">⚠</span>
+      <div>
+        <p><strong>Corrección crítica de interpretación común:</strong> la update 2.4 (septiembre 2017) introdujo los grandes permit-locks dos meses después de la declaración de Lavecon.</p>
+        <p>El comentario de Ascorbius (“entonces no está en un sistema bloqueado”) es su interpretación personal, NO lo que dijo Brookes. <strong>Los sistemas con permit NO están descartados.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .fact-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-1);
+  }
+
+  .fact-num {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    color: var(--cyan-dim);
+    line-height: 1;
+  }
+
+  .panel h3 { margin-bottom: var(--space-2); }
+
+  .fact-quote {
+    color: var(--white);
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .fact-who {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    color: var(--cyan-dim);
+  }
+</style>

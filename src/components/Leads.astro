@@ -1,0 +1,231 @@
+---
+/**
+ * Leads — active leads A–I with coordinates, priority badges and status.
+ * All data from expediciones.md / investigacion.md. Nothing invented:
+ * coordinates shown only when present in the sources.
+ */
+
+const leads = [
+  {
+    letter: 'A',
+    name: 'LFT 926',
+    subtitle: 'La puerta de entrada',
+    priority: 'Alta',
+    access: 'Accesible',
+    sessions: '1-3',
+    risk: 'Medio',
+    coords: 'X 51.03 / Y 17.69 / Z 30.22 · ~30 LY del núcleo del Bubble',
+    body: 'El espacio ALREDEDOR de las instalaciones nunca se investigó: 21,703+ naves visitaron el sistema y ninguna examinó la proximidad física de los asentamientos ni el espacio entre ellos. Facción controladora: The Dark Wheel. Instalaciones simbólicas: Cosmogonic Echo Communications (5,154 Ls), Erebus Security Bureau, instalación militar y Jailhouse Rock & Blues Bar.',
+    badge: 'badge-amber',
+  },
+  {
+    letter: 'B',
+    name: 'LFT 509',
+    subtitle: 'Vigilancia de un sistema permit-locked',
+    priority: 'Media',
+    access: 'Permit-lock',
+    sessions: '1-2',
+    risk: 'Bajo',
+    coords: 'A 12.6 LY de Shinrarta Dezhra',
+    body: 'Candidato a la estación de la Dark Wheel: la llave, no el destino. Permit desde el lanzamiento (diciembre 2014), cero visitantes en EDSM, gigante gaseoso con exactamente 8 lunas (coincide con el codex) y enana roja clase M scoopable. Junio 2025: naves NPC entran activamente al sistema (wakes bajos). Vigilancia externa con Wake Scanner.',
+    badge: 'badge-cyan',
+  },
+  {
+    letter: 'C',
+    name: 'Sistemas 1984',
+    subtitle: 'Los 36 sistemas originales del Elite en el Bubble',
+    priority: 'Alta',
+    access: 'Accesible',
+    sessions: '6-12 (2-3 solo Sol/Lave/Diso)',
+    risk: 'Medio',
+    coords: 'Bubble — lista parcial: Sol, Lave, Diso, Lesti, Riedquat, Leesti, Zaonce, Arse, Ceesxe, Xeoxe, Orrere, Isinor, Reorte, Uszaa, Engema',
+    body: 'Proximity check cuerpo a cuerpo de los 36 sistemas originales de 1984: volar físicamente cerca de cada cuerpo, mirar el radar y probar drops de emergencia. La distinción “scan ≠ search” nunca se ha hecho. Requiere permit de Sol (rango Federal).',
+    badge: 'badge-amber',
+  },
+  {
+    letter: 'D',
+    name: 'Cassiopeia',
+    subtitle: 'La reina vanidosa y la estrella desaparecida',
+    priority: 'Media',
+    access: 'Accesible',
+    sessions: '2-3',
+    risk: 'Bajo',
+    coords: 'Región Camelopardalis-Perseus',
+    body: 'Gamma Cassiopeiae no está en el mapa galáctico (febrero 2025): una estrella entera “borrada”. Sobrevuelo de Schedar (Alpha Cassiopeiae) con búsqueda por proximidad y recorrido de la región. Lectura del toast como acertijo de constelaciones: Cassiopeia = la reina vanidosa; Camelopardalis = la jirafa.',
+    badge: 'badge-cyan',
+  },
+  {
+    letter: 'E',
+    name: 'Memorial Cluster',
+    subtitle: 'Expedición al PMD2009 48',
+    priority: 'Alta',
+    access: 'Accesible (viaje largo)',
+    sessions: '3-5 por nave',
+    risk: 'Alto',
+    coords: 'X 594.91 / Y -431.44 / Z -1071.78 · región de Orión',
+    body: 'Cluster conmemorativo en la ceja del ojo de Barnard’s Loop. El beacon turístico de PMD2009 48 contiene una de las pocas menciones de “Raxxla” en todo el lore. Estrellas con nombre propio: Gagarin, Aldrin, Collins, Shepard, Grissom, Tereshkova, Leonov, Tycho, Copernicus, Galileo, Sagan, The Veil, Khayyam. 1,000-2,000 estrellas: requiere expedición multi-nave. Riesgo Thargoid (Witch Head Nebula).',
+    badge: 'badge-amber',
+  },
+  {
+    letter: 'F',
+    name: 'Cuerpo invisible',
+    subtitle: 'Metodología de detección gravitacional (Stellar Forge)',
+    priority: 'Alta',
+    access: 'Transversal (técnica)',
+    sessions: '1 de calibración',
+    risk: 'Bajo',
+    coords: 'Calibración: Pareco (cometas)',
+    body: 'Técnica transversal, no un destino: detectar un cuerpo con masa pero radio visual cero, indetectable por scanners (y por datamining) y solo descubrible por interacción gravitacional física. Mecanismo probado: los cometas de Pareco. Habilita la búsqueda real de los leads A, C y E. Marco interpretativo: Lovecraft y Excession de Iain M. Banks.',
+    badge: 'badge-amber',
+  },
+  {
+    letter: 'G',
+    name: 'Witch-space',
+    subtitle: 'Landscape Signal y análisis de espectrogramas',
+    priority: 'Media',
+    access: 'Ninguna (grabación de audio)',
+    sessions: '2-4',
+    risk: 'Muy bajo',
+    coords: 'Proyecto paralelo: cualquier región',
+    body: 'Grabar saltos FSD (desde la cabina) y el sonido ambiental del espacio real, y analizar espectrogramas con Audacity. Imágenes ocultas documentadas: serpientes, dragones, símbolos de observadores/guardianes; patrón “rueda dentro de un triángulo” en los túneles FSD. Requisito de triangulación en el centro de la galaxia. No requiere nave especial.',
+    badge: 'badge-cyan',
+  },
+  {
+    letter: 'H',
+    name: 'Triton (Sol)',
+    subtitle: 'El permit sin fuente',
+    priority: 'Media',
+    access: 'Permit-lock',
+    sessions: '1-2 + recurrente',
+    risk: 'Bajo',
+    coords: 'Sol — octava luna de Neptuno',
+    body: 'Triton es la octava luna de un gigante gaseoso, descripción literalmente idéntica a la estación de la Dark Wheel del codex. Bloqueado por un permit sin fuente obtenible, puesto por la facción “Madre” Gaia. “Escondida a plena vista”: Sol es el sistema más visitado del juego. Requiere permit de Sol (rango Federal). Vigilancia de wakes alrededor de Neptuno.',
+    badge: 'badge-cyan',
+  },
+  {
+    letter: 'I',
+    name: 'Candidatos menores',
+    subtitle: 'Registro de teorías secundarias',
+    priority: 'Baja',
+    access: 'Variable',
+    sessions: '1',
+    risk: 'Variable',
+    coords: '—',
+    body: 'Polaris (anomalía de colonización, en curso jul 2026), Witch’s Reach (permit antiguo, sospechoso junto a LFT 509), nebulosas (incl. ceja de SH254), sistemas con ochos (motivo numérico: SAP 8, octava luna, 8 lunas de LFT 509), Delta Comms Array 69 (círculos y ruedas) y lunas lejanas. Ningún sistema con “Raxxla” en el nombre es candidato real: el par “XX” no existe en el generador de 1984.',
+    badge: 'badge-slate',
+  },
+];
+---
+
+<section id="leads">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 03 // TEORÍAS ACTIVAS</span>
+      <h2>Los leads</h2>
+      <p class="sec-sub">
+        Nueve líneas de investigación documentadas (A-I), con coordenadas cuando existen y prioridad según la matriz de decisión.
+      </p>
+    </header>
+
+    <div class="leads-grid">
+      {
+        leads.map((l) => (
+          <article class="panel lead-card reveal">
+            <header class="lead-head">
+              <span class="lead-letter">LEAD {l.letter}</span>
+              <div class="lead-badges">
+                <span class={'badge ' + l.badge}>{l.priority}</span>
+                <span class="badge badge-slate">{l.access}</span>
+              </div>
+            </header>
+
+            <h3>{l.name}</h3>
+            <p class="lead-sub">{l.subtitle}</p>
+
+            <p class="lead-coords">{l.coords}</p>
+
+            <p class="lead-body">{l.body}</p>
+
+            <footer class="lead-meta">
+              <span>Sesiones: <strong>{l.sessions}</strong></span>
+              <span>Riesgo: <strong>{l.risk}</strong></span>
+            </footer>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .leads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: var(--space-2);
+  }
+
+  .lead-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .lead-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-bottom: var(--space-1);
+  }
+
+  .lead-letter {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--cyan-dim);
+  }
+
+  .lead-badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .lead-sub {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--slate);
+    margin-bottom: var(--space-1);
+  }
+
+  .lead-coords {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--amber-soft);
+    background: rgba(255, 158, 0, 0.06);
+    border: 1px dashed rgba(255, 158, 0, 0.35);
+    padding: 0.5em 0.8em;
+    margin-bottom: var(--space-1);
+  }
+
+  .lead-body {
+    flex-grow: 1;
+    font-size: 0.94rem;
+  }
+
+  .lead-meta {
+    display: flex;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    border-top: 1px solid rgba(102, 204, 255, 0.15);
+    padding-top: var(--space-1);
+  }
+
+  .lead-meta strong {
+    color: var(--cyan);
+  }
+</style>

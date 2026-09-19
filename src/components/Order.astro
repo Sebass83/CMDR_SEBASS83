@@ -1,0 +1,133 @@
+---
+/**
+ * Order — suggested attack order F → A → C → E → G with intercalated
+ * surveillance leads. Data from README.md.
+ */
+
+const steps = [
+  {
+    letter: 'F',
+    title: 'Técnica del cuerpo invisible',
+    text: 'Calibración en Pareco en una sesión: habilita el “scan ≠ search” real en todo lo demás. Es el cimiento metodológico.',
+    icon: 'F',
+  },
+  {
+    letter: 'A',
+    title: 'LFT 926',
+    text: 'Accesible hoy, mayor densidad de pistas (instalaciones simbólicas, vigilancia documentada, espacio sin investigar). Resultados posibles en 1-3 sesiones.',
+    icon: 'A',
+  },
+  {
+    letter: 'C',
+    title: 'Sistemas 1984 (énfasis Sol/Lave/Diso)',
+    text: 'Búsqueda sistemática de largo aliento con la técnica de F ya dominada; cubre la brecha principal documentada.',
+    icon: 'C',
+  },
+  {
+    letter: 'E',
+    title: 'Memorial Cluster',
+    text: 'Expedición de mayor envergadura: iniciar la planificación y coordinación multi-nave pronto, ejecutar cuando se junten pilotos o sesiones dedicadas.',
+    icon: 'E',
+  },
+  {
+    letter: 'G',
+    title: 'Witch-space',
+    text: 'Proyecto paralelo: se graban saltos en cualquier expedición y se analizan en sesiones dedicadas, sin bloquear los demás planes.',
+    icon: 'G',
+  },
+];
+---
+
+<section id="orden">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 05 // SECUENCIA DE EJECUCIÓN</span>
+      <h2>Orden de ataque sugerido</h2>
+      <p class="sec-sub">
+        Secuencia recomendada por el plan de cacería: del cimiento metodológico a la expedición mayor.
+      </p>
+    </header>
+
+    <ol class="order-list">
+      {
+        steps.map((s, i) => (
+          <li class="order-item reveal">
+            <span class="order-idx">{i + 1}</span>
+            <span class="order-letter">{s.letter}</span>
+            <div class="order-body">
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="callout reveal" role="note">
+      <span class="callout-ico" aria-hidden="true">↻</span>
+      <p>
+        <strong>Intercalar:</strong> B y H (vigilancia de permit-locks brevemente tras cada actualización) y D (verificación puntual de Gamma Cassiopeiae y Schedar) cuando la ruta los acerque.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .order-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 820px;
+    margin-inline: auto;
+    margin-bottom: var(--space-3);
+  }
+
+  .order-item {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid rgba(102, 204, 255, 0.18);
+    background: linear-gradient(180deg, var(--bg-panel), var(--bg-panel-2));
+    padding: var(--space-2) var(--space-3);
+    transition: border-color var(--d-fast) ease, box-shadow var(--d-fast) ease;
+  }
+
+  .order-item:hover {
+    border-color: rgba(255, 158, 0, 0.5);
+    box-shadow: 0 0 24px rgba(255, 158, 0, 0.1);
+  }
+
+  .order-idx {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    color: var(--slate-dim);
+  }
+
+  .order-letter {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--amber);
+    color: var(--amber-soft);
+    font-family: var(--font-display);
+    font-weight: 700;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+
+  .order-body h3 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.2rem;
+  }
+
+  .order-body p {
+    color: var(--slate);
+    font-size: 0.92rem;
+  }
+</style>

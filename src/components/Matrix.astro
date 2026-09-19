@@ -1,0 +1,71 @@
+---
+/**
+ * Matrix — decision matrix for leads A–I.
+ * Data copied verbatim from README.md (single source of truth).
+ */
+
+const rows = [
+  { lead: 'A. LFT 926', access: 'Accesible', priority: 'Alta — el lead más caliente; el espacio entre instalaciones nunca se investigó', sessions: '1-3', risk: 'Medio (combate, binaria)', dep: 'Ninguna' },
+  { lead: 'B. LFT 509', access: 'Permit-lock (observación externa)', priority: 'Media — candidato a estación de la Dark Wheel, pero bloqueado', sessions: '1-2', risk: 'Bajo', dep: 'Ninguna (Shinrarta opcional: rango Elite)' },
+  { lead: 'C. Sistemas 1984', access: 'Accesible', priority: 'Alta — nunca se hizo proximity check de los 36', sessions: '6-12 (2-3 solo Sol/Lave/Diso)', risk: 'Medio (tráfico, exclusión de Sol)', dep: 'Permit de Sol (rango Federal)' },
+  { lead: 'D. Cassiopeia', access: 'Accesible', priority: 'Media — verificación rápida de Gamma Cas y sobrevuelo de Schedar', sessions: '2-3', risk: 'Bajo', dep: 'Ninguna' },
+  { lead: 'E. Memorial Cluster', access: 'Accesible (viaje largo)', priority: 'Alta — hallazgo reciente; requiere expedición multi-nave', sessions: '3-5 por nave', risk: 'Alto (Thargoids, distancia)', dep: 'Nave de expedición; coordinación para cobertura total' },
+  { lead: 'F. Cuerpo invisible', access: 'Transversal (técnica)', priority: 'Alta — habilita la búsqueda real de los demás leads', sessions: '1 de calibración', risk: 'Bajo', dep: 'Ninguna' },
+  { lead: 'G. Witch-space', access: 'Ninguna (grabación de audio)', priority: 'Media — proyecto paralelo, ejecutable entre sesiones', sessions: '2-4', risk: 'Muy bajo', dep: 'Audacity u OBS' },
+  { lead: 'H. Triton (Sol)', access: 'Permit-lock', priority: 'Media — permit sin fuente, vigilancia requiere periodicidad', sessions: '1-2 + recurrente', risk: 'Bajo', dep: 'Permit de Sol (rango Federal)' },
+  { lead: 'I. Candidatos menores', access: 'Variable', priority: 'Baja — registro y acciones mínimas', sessions: '1', risk: 'Variable', dep: 'Variable' },
+];
+---
+
+<section id="matriz">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 04 // SELECCIÓN DE OBJETIVO</span>
+      <h2>Matriz de decisión</h2>
+      <p class="sec-sub">
+        Accesibilidad, prioridad, sesiones estimadas, riesgo y dependencias de cada lead.
+      </p>
+    </header>
+
+    <div class="table-wrap panel reveal">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Lead</th>
+            <th scope="col">Accesibilidad</th>
+            <th scope="col">Prioridad</th>
+            <th scope="col">Sesiones estimadas</th>
+            <th scope="col">Riesgo</th>
+            <th scope="col">Dependencia previa</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rows.map((r) => (
+              <tr>
+                <td class="strong">{r.lead}</td>
+                <td>{r.access}</td>
+                <td>{r.priority}</td>
+                <td>{r.sessions}</td>
+                <td>{r.risk}</td>
+                <td>{r.dep}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .table-wrap.panel {
+    padding: 0;
+    border: 1px solid rgba(102, 204, 255, 0.22);
+  }
+
+  .table-wrap.panel:hover {
+    transform: none;
+    box-shadow: none;
+  }
+</style>

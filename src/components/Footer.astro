@@ -1,0 +1,131 @@
+---
+/**
+ * Footer — disclaimers and closing. Non-official fan reference material.
+ */
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-title">RAXXLA</p>
+        <p class="footer-sub">Referencia no oficial de la comunidad · El misterio más grande de Elite Dangerous</p>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#hechos">Hechos confirmados</a></li>
+        <li><a href="#cronologia">Declaraciones oficiales</a></li>
+        <li><a href="#leads">Los leads</a></li>
+        <li><a href="#matriz">Matriz de decisión</a></li>
+        <li><a href="#orden">Orden de ataque</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ul>
+
+      <div class="footer-disclaimers">
+        <p><strong>AVISO:</strong> investigación no oficial. Todo el contenido se basa en fuentes públicas de la comunidad (foros, Inara, EDSM, Reddit, Steam) y en conocimiento general del juego.</p>
+        <p>Frontier Developments no ha confirmado ninguna teoría sobre RAXXLA y nunca ha revelado su ubicación o su naturaleza. Nadie ha encontrado RAXXLA en más de 12 años de juego.</p>
+        <p>Los datos del juego cambian con cada actualización: verificar siempre el estado de permisos, facciones y activos en el momento de la expedición.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>Compilación: 18 de septiembre de 2026 · Elite Dangerous es una marca de Frontier Developments Plc</span>
+      <span class="footer-signal">SIN RESOLVER · LA BÚSQUEDA CONTINÚA</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid rgba(102, 204, 255, 0.2);
+    background: linear-gradient(180deg, rgba(6, 10, 20, 0.9), var(--bg-deep));
+    padding-block: var(--space-4) var(--space-3);
+    margin-top: var(--space-3);
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    opacity: 0.6;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(102, 204, 255, 0.12);
+    margin-bottom: var(--space-2);
+  }
+
+  @media (min-width: 820px) {
+    .footer-grid {
+      grid-template-columns: 1.2fr 1fr 1.4fr;
+    }
+  }
+
+  .footer-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    color: var(--amber-soft);
+    font-size: 1.4rem;
+    text-shadow: 0 0 20px rgba(255, 158, 0, 0.35);
+  }
+
+  .footer-sub {
+    color: var(--slate);
+    font-size: 0.88rem;
+    margin-top: var(--space-1);
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-links a {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-disclaimers {
+    font-size: 0.84rem;
+    color: var(--slate);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .footer-disclaimers strong {
+    color: var(--amber-soft);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-1);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--slate-dim);
+  }
+
+  .footer-signal {
+    color: var(--amber-deep);
+    letter-spacing: 0.2em;
+  }
+</style>
