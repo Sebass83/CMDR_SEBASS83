@@ -444,7 +444,6 @@ thead th {
   text-transform: uppercase;
   color: var(--amber-soft);
   background: rgba(255, 158, 0, 0.06);
-  white-space: nowrap;
 }
 
 tbody tr {
