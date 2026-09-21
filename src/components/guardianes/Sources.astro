@@ -1,0 +1,82 @@
+---
+/**
+ * Sources — reference sources for this entry: Fandom wikis, Canonn Science,
+ * Galnet and the community tools.
+ */
+
+interface Source {
+  name: string;
+  url: string;
+}
+
+const sources: Source[] = [
+  { name: 'Elite Dangerous Fandom — Guardian', url: 'https://elite-dangerous.fandom.com/wiki/Guardian' },
+  { name: 'Elite Dangerous Fandom — Guardian-Thargoid War', url: 'https://elite-dangerous.fandom.com/wiki/Guardian-Thargoid_War' },
+  { name: 'Elite Dangerous Fandom — Guardian Structure', url: 'https://elite-dangerous.fandom.com/wiki/Guardian_Structure' },
+  { name: 'Canonn Science — registro de estructuras Guardian', url: 'https://canonn.science/codex/guardian-structure' },
+  { name: 'Galnet — Epílogo de la guerra Thargoid', url: 'https://www.elitedangerous.com/news/thargoid-war-epilogue' },
+  { name: 'Galnet — Guardian Nanite Torpedoes Enter Production', url: 'https://www.elitedangerous.com/news/galnet/guardian-nanite-torpedoes-enter-production' },
+  { name: 'Elite Cheat Sheet — corredores de tecnología (verificado 3312)', url: 'https://elitecheatsheet.com/tech-brokers' },
+];
+---
+
+<section id="fuentes">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 06 // ARCHIVO</span>
+      <h2>Fuentes</h2>
+      <p class="sec-sub">
+        Fuentes principales de esta entrada: Fandom, Canonn Science, Galnet y la comunidad de comandantes.
+      </p>
+    </header>
+
+    <ul class="sources">
+      {
+        sources.map((s, i) => (
+          <li class="source-item reveal">
+            <span class="source-idx">{String(i + 1).padStart(2, '0')}</span>
+            <a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .sources {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  .source-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: 0.55em 0.8em;
+    border-left: 2px solid rgba(102, 204, 255, 0.25);
+    background: rgba(6, 10, 20, 0.5);
+    transition: border-color var(--d-fast) ease, background var(--d-fast) ease;
+  }
+
+  .source-item:hover {
+    border-left-color: var(--amber);
+    background: rgba(255, 158, 0, 0.05);
+  }
+
+  .source-idx {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--slate-dim);
+    flex-shrink: 0;
+  }
+
+  .source-item a {
+    word-break: break-word;
+    font-size: 0.95rem;
+  }
+</style>

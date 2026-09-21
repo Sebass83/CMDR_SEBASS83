@@ -1,0 +1,169 @@
+---
+/**
+ * Mysteries — the open questions left by the Guardians, A–E, with status
+ * badges and short meta lines.
+ */
+
+interface Lead {
+  letter: string;
+  badge: string;
+  badgeText: string;
+  name: string;
+  sub: string;
+  body: string;
+  metaLabel: string;
+  metaValue: string;
+}
+
+const leads: Lead[] = [
+  {
+    letter: 'A',
+    badge: 'badge-amber',
+    badgeText: 'SIN RESPUESTA',
+    name: 'El destino de los Constructos',
+    sub: 'Dos millones de años sin creadores',
+    body: '¿Fueron destruidos o todavía existen, irreconocibles tras dos millones de años sin creadores? La pregunta de Ram Tah sigue abierta.',
+    metaLabel: 'Relevancia',
+    metaValue: 'máxima',
+  },
+  {
+    letter: 'B',
+    badge: 'badge-slate',
+    badgeText: 'SIN LOCALIZAR',
+    name: 'La patria Guardian',
+    sub: 'El mundo natal jamás hallado',
+    body: 'El mundo natal de los Guardianes nunca se halló; los mapas comunitarios notan que los sitios se agrupan cerca del sector Regor, de acceso restringido.',
+    metaLabel: 'Regor',
+    metaValue: 'permit-locked',
+  },
+  {
+    letter: 'C',
+    badge: 'badge-cyan',
+    badgeText: 'REGISTRO: 140+',
+    name: 'Cientos, quizá miles de sitios',
+    sub: 'Más allá del catálogo conocido',
+    body: 'Un log decodificado afirma que existen cientos o miles de yacimientos Guardian más allá del catálogo conocido.',
+    metaLabel: 'Descubrimientos',
+    metaValue: 'activo',
+  },
+  {
+    letter: 'D',
+    badge: 'badge-amber',
+    badgeText: 'SIN EXPLICAR',
+    name: 'Las Reliquias sin Clasificar',
+    sub: 'Materia de doble firma',
+    body: 'Materia que emite firmas Guardian y Thargoid a la vez; se aprendió a usarla como arma, y nunca se explicó qué era.',
+    metaLabel: 'Firma',
+    metaValue: 'doble',
+  },
+  {
+    letter: 'E',
+    badge: 'badge-slate',
+    badgeText: 'SOLO SLF',
+    name: 'Las naves Guardian',
+    sub: 'Planos que no llegaron al catálogo',
+    body: 'Los registros mencionan planos de motores y naves Guardian completas; el catálogo solo implementó tres variantes de SLF.',
+    metaLabel: 'Contenido',
+    metaValue: 'no lanzado',
+  },
+];
+---
+
+<section id="misterios">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 05 // MISTERIOS ABIERTOS</span>
+      <h2>Misterios abiertos</h2>
+      <p class="sec-sub">
+        Cinco preguntas sin respuesta después de dos millones de años y una década de investigación.
+      </p>
+    </header>
+
+    <div class="leads-grid">
+      {
+        leads.map((l) => (
+          <article class="panel lead-card reveal">
+            <header class="lead-head">
+              <span class="lead-letter">MISTERY {l.letter}</span>
+              <div class="lead-badges">
+                <span class={'badge ' + l.badge}>{l.badgeText}</span>
+              </div>
+            </header>
+
+            <h3>{l.name}</h3>
+            <p class="lead-sub">{l.sub}</p>
+
+            <p class="lead-body">{l.body}</p>
+
+            <footer class="lead-meta">
+              <span>{l.metaLabel}: <strong>{l.metaValue}</strong></span>
+            </footer>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .leads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: var(--space-2);
+  }
+
+  .lead-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .lead-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-bottom: var(--space-1);
+  }
+
+  .lead-letter {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--cyan-dim);
+  }
+
+  .lead-badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .lead-sub {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--slate);
+    margin-bottom: var(--space-1);
+  }
+
+  .lead-body {
+    flex-grow: 1;
+    font-size: 0.94rem;
+  }
+
+  .lead-meta {
+    display: flex;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    border-top: 1px solid rgba(102, 204, 255, 0.15);
+    padding-top: var(--space-1);
+  }
+
+  .lead-meta strong {
+    color: var(--cyan);
+  }
+</style>

@@ -12,7 +12,10 @@ interface Props {
 
 const { post, index } = Astro.props;
 
-const paddedIndex = String(index).padStart(3, '0');
+// `entry` in the frontmatter is the canonical entry number; `index` (the
+// position in the pubDate-DESC list) is the fallback for legacy posts.
+const entryNumber = post.data.entry ?? index;
+const paddedIndex = String(entryNumber).padStart(3, '0');
 const pubDate = new Intl.DateTimeFormat('es-ES', {
   day: 'numeric',
   month: 'long',

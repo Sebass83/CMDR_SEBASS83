@@ -20,7 +20,7 @@
 - [x] **T4** Páginas: home landing CMDR SEBASS83 (hero + sobre el commander placeholder + últimas entradas) en `src/pages/index.astro`; detalle `src/pages/blog/[slug].astro`. Check: build verde (2 páginas).
 - [x] **T5** Layout (header nav sticky), Footer (anclas → `BASE_URL blog/raxxla/#...`), `global.css` (`.prose` HUD con tablas contenidas). Check: build verde.
 - [x] **T6** Verificación final: `npm install` + `npm run build` → `2 page(s) built in 2.99s`; `dist/index.html` y `dist/blog/raxxla/index.html` generados.
-- [x] **T7** Entrada 002 — Guardianes: investigación (worker, sep 2026) + `src/content/blog/guardianes.mdx` mixto (crónica + guía práctica), prosa markdown `.prose` con tablas; link interno a RAXXLA con `BASE_URL`; texto neutral sin voseo. Check: build verde (3 páginas).
+- [x] **T7** Entrada 002 — Guardianes: investigación (worker, sep 2026); v1 markdown `.prose` → revisión del usuario ("no respeta el diseño RAXXLA") → rediseño completo con componentes HUD en `src/components/guardianes/` (Hero + Facts + Timeline + Tech + Guide + Mysteries + Sources) espejando `src/components/raxxla/`; numeración de entradas agregada al schema (`entry` en content.config.ts, PostHeader usa `entry ?? index`; RAXXLA entry 1, Guardianes entry 2). Check: build verde (3 páginas) x3.
 
 ## Rutas
 
@@ -35,7 +35,7 @@
 - **Status nativo (preflight)**: falló seguro `operation_failed` pre_native — RAR no puede validar el filesystem del repo sobre UNC WSL ("unknown filesystem; cannot assume NTFS semantics"). Retry de una sola vez vía WSL: binario `gentle-ai` no instalado en el distro. Resultado typed preservado; **review nativo NO disponible en este entorno** (limitación de entorno, no defecto de Gentle AI: fallo seguro, sin mutación, retry-safe). No se inventó PASS ni se relanzó el ciclo.
 - **Commit de work-unit**: `4578460` en branch `feat/blog-bitacora` — "feat: restructure site into CMDR SEBASS83 commander log blog" (21 archivos, 1656 insertions/34 deletions; renames 100% detectados).
 - **URL final**: repo renombrado por el usuario a `Sebass83/CMDR_SEBASS83`; `astro.config.mjs` base → `/CMDR_SEBASS83/` (commit `dc9f027` en `feat/pages-url`, merge ff a main); remote actualizado a `git@github.com:Sebass83/CMDR_SEBASS83.git`; push OK. Sitio: `https://sebass83.github.io/CMDR_SEBASS83/`.
-- **Entrada Guardianes (T7)**: investigación worker con fuentes (memoria `investigacion/guardianes`); `src/content/blog/guardianes.mdx` mixto (crónica + guía práctica, tablas contenidas, link interno a RAXXLA con `BASE_URL`); build verde 3 páginas; commit `1dd257f` en `feat/entrada-guardianes`.
+- **Entrada Guardianes (T7)**: investigación worker con fuentes (memoria `investigacion/guardianes`); v1 markdown publicada (commit `1dd257f`), luego rediseño a componentes HUD (branch `feat/guardianes-hud`): `Hero` (kicker COMANDER LOG // ENTRADA 002, typewriter, toast Ram Tah, badges, radar), `Facts`, `Timeline` (8 entries, incluye Proteus Wave), `Tech` (tabla matriz 8 filas), `Guide` (pasos R/M/A/B/N + callout materiales), `Mysteries` (5 cards), `Sources` (7 fuentes); `entry` del schema para numeración coherente (RAXXLA 001, Guardianes 002).
 
 ## Próximo paso
 

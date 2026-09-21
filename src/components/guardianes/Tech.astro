@@ -1,0 +1,75 @@
+---
+/**
+ * Tech — Guardian technology unlockable at tech brokers, with the 3312
+ * verdict for each module.
+ */
+
+interface Row {
+  tech: string;
+  what: string;
+  verdict: string;
+}
+
+const rows: Row[] = [
+  { tech: 'FSD Booster', what: 'Aumento plano de salto: de +4 Ly (1H) a +10,5 Ly (5H).', verdict: 'El mejor unlock del juego.' },
+  { tech: 'Reforzador de escudo', what: 'Refuerzo plano del escudo.', verdict: 'El segundo más valioso.' },
+  { tech: 'Reforzador de casco / módulos', what: 'Refuerzo plano de integridad.', verdict: 'Útil si no se ingenieriza.' },
+  { tech: 'Planta de energía / distribuidor híbridos', what: 'Variantes Guardian.', verdict: 'Omitir si se ingenieriza.' },
+  { tech: 'Gauss Cannon', what: 'Arma AX de referencia.', verdict: 'Se mantiene vigente.' },
+  { tech: 'Plasma Charger / Shard Cannon', what: 'Familia de armas Guardian.', verdict: 'Variantes modificadas más baratas en corredores.' },
+  { tech: 'SLF: XG7 Trident, XG8 Javelin, XG9 Lance', what: 'Naves de combate remotas; la Lance es la opción AX.', verdict: 'Activas en 3312.' },
+  { tech: 'Nanite Torpedo Pylon', what: 'Arma decisiva de la guerra Thargoid.', verdict: 'Sin objetivos desde la caída de Cocijo.' },
+];
+---
+
+<section id="tecnologia">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 03 // TECNOLOGÍA GUARDIAN</span>
+      <h2>La tecnología que dejaron</h2>
+      <p class="sec-sub">
+        El arsenal que se desbloquea en los corredores de tecnología Guardian, con veredicto para 3312.
+      </p>
+    </header>
+
+    <div class="table-wrap panel reveal">
+      <table>
+        <colgroup>
+          <col style="width: 34%" />
+          <col style="width: 38%" />
+          <col style="width: 28%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Tecnología</th>
+            <th scope="col">Qué hace</th>
+            <th scope="col">Veredicto en 3312</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rows.map((r) => (
+              <tr>
+                <td class="strong">{r.tech}</td>
+                <td>{r.what}</td>
+                <td>{r.verdict}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .table-wrap.panel {
+    padding: 0;
+    border: 1px solid rgba(102, 204, 255, 0.22);
+  }
+
+  .table-wrap.panel:hover {
+    transform: none;
+    box-shadow: none;
+  }
+</style>

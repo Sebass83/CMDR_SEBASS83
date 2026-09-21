@@ -1,0 +1,117 @@
+---
+/**
+ * Facts — the four hard facts about the Guardians from the official codex
+ * and Ram Tah's decoded logs, plus a logbook note on sourcing.
+ */
+
+interface Fact {
+  n: string;
+  badge: string;
+  title: string;
+  quote: string;
+  who: string;
+}
+
+const facts: Fact[] = [
+  {
+    n: '01',
+    badge: 'CONFIRMADO',
+    title: 'Especie extinta',
+    quote: '“Bajo el nombre de Homo Custos, una civilización galáctica avanzada que se autoextinguió hace 1 a 2 millones de años: el fin lo escribieron sus propias máquinas.”',
+    who: 'Códice oficial · registros de Ram Tah',
+  },
+  {
+    n: '02',
+    badge: 'CONFIRMADO',
+    title: 'Biología',
+    quote: '“Bípedos carnívoros de piel rojiza, con crestas cortantes en los antebrazos; más altos y delgados que los humanos, fruto de un mundo de menor gravedad y mayor temperatura.”',
+    who: 'Códice oficial · registros de Ram Tah',
+  },
+  {
+    n: '03',
+    badge: 'CONFIRMADO',
+    title: 'Cultura',
+    quote: '“Cultura comunal: ciencia, arte, teatro y música, con una veneración profunda de la naturaleza que fue la base de su religión final.”',
+    who: 'Códice oficial · registros de Ram Tah',
+  },
+  {
+    n: '04',
+    badge: 'CONFIRMADO',
+    title: 'La victoria olvidada',
+    quote: '“Ganaron la guerra contra los Thargoides, y su ingeniería dejó la huella que hoy conocemos como campo anti-Guardian.”',
+    who: 'Códice oficial · registros de Ram Tah',
+  },
+];
+---
+
+<section id="hechos">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 01 // DATOS DUROS</span>
+      <h2>Datos duros</h2>
+      <p class="sec-sub">
+        Cuatro hechos confirmados del códice oficial: quiénes eran los Guardianes y cómo terminó su historia.
+      </p>
+    </header>
+
+    <div class="facts-grid">
+      {
+        facts.map((f) => (
+          <article class="panel reveal">
+            <header class="fact-head">
+              <span class="fact-num">{f.n}</span>
+              <span class="badge badge-amber">{f.badge}</span>
+            </header>
+            <h3>{f.title}</h3>
+            <p class="fact-quote">{f.quote}</p>
+            <p class="fact-who">{f.who}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="callout reveal" role="note">
+      <span class="callout-ico" aria-hidden="true">⚠</span>
+      <p><strong>NOTA DE BITÁCORA —</strong> La humanidad no supo de los Guardianes hasta 3302. Esta entrada usa el códice oficial y los registros de Ram Tah; no mezcla teorías de la comunidad como hechos.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .fact-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-1);
+  }
+
+  .fact-num {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    color: var(--cyan-dim);
+    line-height: 1;
+  }
+
+  .panel h3 { margin-bottom: var(--space-2); }
+
+  .fact-quote {
+    color: var(--white);
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .fact-who {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    color: var(--cyan-dim);
+  }
+</style>

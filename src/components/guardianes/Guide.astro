@@ -1,0 +1,141 @@
+---
+/**
+ * Guide — field guide for commanders: the classic Guardian farm circuit
+ * (ruins, module structure, weapon structure, beacons, Ram Tah missions).
+ * Verdict: the unlock costs did not change in 3312.
+ */
+
+interface Step {
+  letter: string;
+  title: string;
+  text: string;
+  icon: string;
+}
+
+const steps: Step[] = [
+  {
+    letter: 'R',
+    title: 'Ruinas — datos y misión',
+    text: 'Synuefe XR-H d11-102, cuerpo 1 B, coordenadas −31,7347 / −128,9212; se escanean los obeliscos con las combinaciones de artefactos correctas.',
+    icon: 'R',
+  },
+  {
+    letter: 'M',
+    title: 'Estructura de módulos — farm recomendado',
+    text: 'Col 173 Sector GS-J b25-4, planeta D 2: brillante, plana y fácil de aterrizar; el estándar comunitario para el FSD Booster. Se derriban los paneles destructibles y los Sentinels, y se recogen los fragmentos de plano de módulo y los materiales.',
+    icon: 'M',
+  },
+  {
+    letter: 'A',
+    title: 'Estructura de armas',
+    text: 'Synuefe EU-Q C21-10, planeta A 3; layout «Bear».',
+    icon: 'A',
+  },
+  {
+    letter: 'B',
+    title: 'Balizas y planos de nave',
+    text: 'Synuefe KU-F b44-4, cuerpo 4; la baliza da la Llave Antigua y las coordenadas hacia la estructura grande en Synuefe EU-Q c21-15 A 1, donde están los planos de las SLF.',
+    icon: 'B',
+  },
+  {
+    letter: 'N',
+    title: 'Meene — misiones de Ram Tah',
+    text: 'Felice Dock / Phoenix Base: «Decodificando las Ruinas Antiguas» (101 registros a 1 MCr cada uno, más un bono de 100 MCr, repetible) y «Descifrando los Registros Guardian» (28 logs).',
+    icon: 'N',
+  },
+];
+---
+
+<section id="guia">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 04 // GUÍA DE CAMPO</span>
+      <h2>Para el commander que quiera ir</h2>
+      <p class="sec-sub">
+        El circuito clásico de farm sigue intacto en 3312: ruinas, estructuras, balizas y las misiones de Ram Tah.
+      </p>
+    </header>
+
+    <ol class="order-list">
+      {
+        steps.map((s, i) => (
+          <li class="order-item reveal">
+            <span class="order-idx">{i + 1}</span>
+            <span class="order-letter">{s.letter}</span>
+            <div class="order-body">
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="callout reveal" role="note">
+      <span class="callout-ico" aria-hidden="true">↻</span>
+      <p>
+        <strong>MATERIALES —</strong> Se necesitan Guardian Power Cells, Guardian Technology Components, Guardian Power Conduits, Sentinel Weapon Parts y Sentinel Wreckage, más los datos de patrón de obelisco para algunos desbloqueos. No hay comerciante de materiales que los intercambie: el grind es por sitio. Veredicto 3312: el FSD Booster sigue siendo la mejor inversión de la galaxia y los costos de desbloqueo no cambiaron.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .order-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 820px;
+    margin-inline: auto;
+    margin-bottom: var(--space-3);
+  }
+
+  .order-item {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid rgba(102, 204, 255, 0.18);
+    background: linear-gradient(180deg, var(--bg-panel), var(--bg-panel-2));
+    padding: var(--space-2) var(--space-3);
+    transition: border-color var(--d-fast) ease, box-shadow var(--d-fast) ease;
+  }
+
+  .order-item:hover {
+    border-color: rgba(255, 158, 0, 0.5);
+    box-shadow: 0 0 24px rgba(255, 158, 0, 0.1);
+  }
+
+  .order-idx {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    color: var(--slate-dim);
+  }
+
+  .order-letter {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--amber);
+    color: var(--amber-soft);
+    font-family: var(--font-display);
+    font-weight: 700;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+
+  .order-body h3 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.2rem;
+  }
+
+  .order-body p {
+    color: var(--slate);
+    font-size: 0.92rem;
+  }
+</style>
