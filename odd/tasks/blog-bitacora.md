@@ -20,6 +20,7 @@
 - [x] **T4** Páginas: home landing CMDR SEBASS83 (hero + sobre el commander placeholder + últimas entradas) en `src/pages/index.astro`; detalle `src/pages/blog/[slug].astro`. Check: build verde (2 páginas).
 - [x] **T5** Layout (header nav sticky), Footer (anclas → `BASE_URL blog/raxxla/#...`), `global.css` (`.prose` HUD con tablas contenidas). Check: build verde.
 - [x] **T6** Verificación final: `npm install` + `npm run build` → `2 page(s) built in 2.99s`; `dist/index.html` y `dist/blog/raxxla/index.html` generados.
+- [x] **T7** Entrada 002 — Guardianes: investigación (worker, sep 2026) + `src/content/blog/guardianes.mdx` mixto (crónica + guía práctica), prosa markdown `.prose` con tablas; link interno a RAXXLA con `BASE_URL`; texto neutral sin voseo. Check: build verde (3 páginas).
 
 ## Rutas
 
