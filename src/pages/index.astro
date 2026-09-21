@@ -104,6 +104,27 @@ const posts = (await getCollection('blog'))
           </dl>
         </div>
 
+        <section class="id-links" aria-label="Enlaces externos del commander">
+          <h3 class="id-links-tag">ENLACES EXTERNOS // COMUNICACIÓN</h3>
+          <ul class="id-links-list">
+            <li class="id-link">
+              <a href="https://www.twitch.tv/sebass83" target="_blank" rel="noopener noreferrer">
+                TWITCH <span>twitch.tv/sebass83</span>
+              </a>
+            </li>
+            <li class="id-link">
+              <a href="https://www.youtube.com/@sebastocrator8827" target="_blank" rel="noopener noreferrer">
+                YOUTUBE <span>youtube.com/@sebastocrator8827</span>
+              </a>
+            </li>
+            <li class="id-link">
+              <a href="https://discord.gg/Ef9kgkPdV" target="_blank" rel="noopener noreferrer">
+                DISCORD <span>discord.gg/Ef9kgkPdV</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
         <footer class="id-foot">
           <span>— CMDR SEBASS83 // REGISTRO DE VUELO</span>
           <span>ARCHIVO ABIERTO // 3312</span>
@@ -360,6 +381,57 @@ const posts = (await getCollection('blog'))
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--cyan-dim);
+  }
+
+  .id-links {
+    margin-top: var(--space-3);
+    border-top: 1px dashed rgba(232, 237, 246, 0.12);
+    padding-top: var(--space-2);
+  }
+
+  .id-links-tag {
+    margin: 0 0 var(--space-1);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cyan-dim);
+  }
+
+  .id-links-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .id-link a {
+    display: inline-flex;
+    gap: 0.75em;
+    align-items: baseline;
+    padding: 0.45em 0.8em;
+    border: 1px solid rgba(102, 204, 255, 0.35);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .id-link a span {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    color: var(--cyan-dim);
+  }
+
+  .id-link a:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: rgba(232, 180, 50, 0.06);
   }
 
   @media (max-width: 640px) {
