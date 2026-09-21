@@ -1,0 +1,179 @@
+---
+/**
+ * Mysteries — the open questions about the Thargoids, A–F, tagged as
+ * canon, theory or open, with short meta lines.
+ */
+
+interface Lead {
+  letter: string;
+  badge: string;
+  badgeText: string;
+  name: string;
+  sub: string;
+  body: string;
+  metaLabel: string;
+  metaValue: string;
+}
+
+const leads: Lead[] = [
+  {
+    letter: 'A',
+    badge: 'badge-slate',
+    badgeText: 'TEORÍA',
+    name: 'El origen real',
+    sub: '¿Extragalácticos o extra-universales?',
+    body: 'Dos teorías sin respuesta en el juego: que sean extragalácticos —las «langostas» de Andrómeda— o extra-universales, con el witchspace como su hogar real.',
+    metaLabel: 'Origen',
+    metaValue: 'desconocido',
+  },
+  {
+    letter: 'B',
+    badge: 'badge-cyan',
+    badgeText: 'CANON',
+    name: 'La guerra contra los Guardianes',
+    sub: 'El precedente milenario',
+    body: 'Sembraron el espacio Guardian hace milenios; los Guardianes expandieron su territorio sin saberlo y fueron atacados sin que se aceptara diplomacia. Dato clave: la extinción de los Guardianes la causaron sus propios Constructos —su IA—, no los Thargoides.',
+    metaLabel: 'Códice',
+    metaValue: 'confirmado',
+  },
+  {
+    letter: 'C',
+    badge: 'badge-amber',
+    badgeText: 'ABIERTO',
+    name: '¿Por qué nos ven como plaga?',
+    sub: 'Territorialidad',
+    body: 'Reivindican todo territorio sembrado: la hipótesis es expulsar a la humanidad de lo que consideran su espacio. La motivación última sigue siendo desconocida.',
+    metaLabel: 'Motivación',
+    metaValue: 'desconocida',
+  },
+  {
+    letter: 'D',
+    badge: 'badge-slate',
+    badgeText: 'TEORÍA',
+    name: 'Oresrians y Klaxians',
+    sub: 'Dos dinastías',
+    body: 'Lore de la novela Premonition —no es canon del juego—: dos dinastías en guerra civil, con los Klaxians empujando a los Oresrians «a través del espacio humano como escudo».',
+    metaLabel: 'Lore expandido',
+    metaValue: 'no canon',
+  },
+  {
+    letter: 'E',
+    badge: 'badge-cyan',
+    badgeText: 'CANON',
+    name: 'Las UIA',
+    sub: 'Los stargoids de 3308',
+    body: 'Los «stargoids» que la comunidad siguió en 3308 resultaron ser los Maelstroms, confirmado por Canonn: no eran otra especie, eran su infraestructura de guerra.',
+    metaLabel: 'Canonn',
+    metaValue: 'confirmado',
+  },
+  {
+    letter: 'F',
+    badge: 'badge-amber',
+    badgeText: 'ABIERTO',
+    name: 'El último acto de Cocijo',
+    sub: 'Retirada sin mensaje',
+    body: 'No existe un «mensaje final» canónico: evacuación por portales, las advertencias de Tanner y la teoría de Patreus de que dejaron instalar el Proteus Wave. ¿Se retiraron a reagruparse, o hay algo más? En 3312 se suma la Radicoida Unica: «cultivada, no creada, por los Guardianes».',
+    metaLabel: 'Radicoida',
+    metaValue: '3312',
+  },
+];
+---
+
+<section id="misterios">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 05 // MISTERIOS ABIERTOS</span>
+      <h2>Misterios abiertos</h2>
+      <p class="sec-sub">
+        Seis preguntas abiertas: lo que el juego confirma como canon, lo que la comunidad teoriza y lo que sigue sin respuesta.
+      </p>
+    </header>
+
+    <div class="leads-grid">
+      {
+        leads.map((l) => (
+          <article class="panel lead-card reveal">
+            <header class="lead-head">
+              <span class="lead-letter">MISTERY {l.letter}</span>
+              <div class="lead-badges">
+                <span class={'badge ' + l.badge}>{l.badgeText}</span>
+              </div>
+            </header>
+
+            <h3>{l.name}</h3>
+            <p class="lead-sub">{l.sub}</p>
+
+            <p class="lead-body">{l.body}</p>
+
+            <footer class="lead-meta">
+              <span>{l.metaLabel}: <strong>{l.metaValue}</strong></span>
+            </footer>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .leads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: var(--space-2);
+  }
+
+  .lead-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .lead-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-bottom: var(--space-1);
+  }
+
+  .lead-letter {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--cyan-dim);
+  }
+
+  .lead-badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .lead-sub {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--slate);
+    margin-bottom: var(--space-1);
+  }
+
+  .lead-body {
+    flex-grow: 1;
+    font-size: 0.94rem;
+  }
+
+  .lead-meta {
+    display: flex;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    border-top: 1px solid rgba(102, 204, 255, 0.15);
+    padding-top: var(--space-1);
+  }
+
+  .lead-meta strong {
+    color: var(--cyan);
+  }
+</style>

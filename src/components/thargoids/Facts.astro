@@ -1,0 +1,118 @@
+---
+/**
+ * Facts — the four hard facts about the Thargoids: species, living
+ * technology, the human nomenclature for vessel classes and the origin
+ * of the name, plus a logbook note on barnacle territories.
+ */
+
+interface Fact {
+  n: string;
+  badge: string;
+  title: string;
+  quote: string;
+  who: string;
+}
+
+const facts: Fact[] = [
+  {
+    n: '01',
+    badge: 'CONFIRMADO',
+    title: 'Especie insectoide',
+    quote: '“Especie insectoide sapiente, millones de años más vieja que la humanidad y más antigua incluso que la de los Guardianes. Bioquímica de amoníaco —hierve a −33 °C— y fisiología adaptada al frío: el Interceptor muestra un «ojo gigante sin párpados».”',
+    who: 'Códice oficial · observación de campo',
+  },
+  {
+    n: '02',
+    badge: 'CONFIRMADO',
+    title: 'Tecnología viva',
+    quote: '“«No construyen nada: lo cultivan», David Braben. Todo es biomecánico: naves orgánicas que rondan el witchspace, hacen hiperdicciones capaces de sacar al piloto del salto y se desplazan de forma cuasi-instantánea a distancias enormes.”',
+    who: 'David Braben · Frontier Developments',
+  },
+  {
+    n: '03',
+    badge: 'CONFIRMADO',
+    title: 'Clases y nomenclatura',
+    quote: '“Nomenclatura humana: Scouts; Interceptors —Cyclops (4 corazones, ~450 m/s), Basilisk (5 corazones, 530 m/s, el más rápido), Medusa (6) y Hydra (8)—; Orthrus (escudo permanente, campo anti-Guardian, huye); Hunters Glaive y Scythe (3309); Revenant (3310) y Titanes (designación Aegis, 3309). No hay confirmación de una «hive queen».”',
+    who: 'Designaciones humanas · Aegis',
+  },
+  {
+    n: '04',
+    badge: 'CONFIRMADO',
+    title: 'El nombre',
+    quote: '“«Thargoid» lo acuñaron los humanos en 2849 tras un vídeo borroso etiquetado como «THARG»; durante siglos fue folclore, hasta la Primera Guerra.”',
+    who: 'GalNet · archivo histórico',
+  },
+];
+---
+
+<section id="hechos">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 01 // DATOS DUROS</span>
+      <h2>Datos duros</h2>
+      <p class="sec-sub">
+        Cuatro hechos confirmados: qué es la especie, cómo funciona su tecnología viva y cómo la humanidad los clasificó.
+      </p>
+    </header>
+
+    <div class="facts-grid">
+      {
+        facts.map((f) => (
+          <article class="panel reveal">
+            <header class="fact-head">
+              <span class="fact-num">{f.n}</span>
+              <span class="badge badge-amber">{f.badge}</span>
+            </header>
+            <h3>{f.title}</h3>
+            <p class="fact-quote">{f.quote}</p>
+            <p class="fact-who">{f.who}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="callout reveal" role="note">
+      <span class="callout-ico" aria-hidden="true">⚠</span>
+      <p><strong>COLONIZACIÓN —</strong> Los Thargoides siembran <strong>Barnacles</strong> en mundos de amoníaco y producen <strong>Meta-Alloys</strong>, su material de construcción. Reivindican como suyo todo el territorio sembrado.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .fact-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-1);
+  }
+
+  .fact-num {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    color: var(--cyan-dim);
+    line-height: 1;
+  }
+
+  .panel h3 { margin-bottom: var(--space-2); }
+
+  .fact-quote {
+    color: var(--white);
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .fact-who {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    color: var(--cyan-dim);
+  }
+</style>

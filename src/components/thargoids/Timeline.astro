@@ -1,0 +1,355 @@
+---
+/**
+ * Timeline — the Thargoid history as humans lived it, from the First
+ * Thargoid War to the fall of Cocijo over Sol, grouped by era.
+ * Reconstructed from GalNet archives and community records.
+ */
+
+interface Entry {
+  era: string;
+  when: string;
+  where: string;
+  who: string;
+  text: string;
+  note: string;
+}
+
+const entries: Entry[] = [
+  {
+    era: 'PRIMERA GUERRA THARGOID',
+    when: '3125',
+    where: 'Espacio colonizado',
+    who: 'GUERRA NO DECLARADA',
+    text: 'Inicio de la Primera Guerra Thargoid: GalCop contra naves octogonales; una guerra nunca declarada formalmente.',
+    note: 'Primer conflicto armado entre ambas especies.',
+  },
+  {
+    era: 'PRIMERA GUERRA THARGOID',
+    when: '3150',
+    where: 'HIP 12099',
+    who: 'EL MYCOID',
+    text: 'John Jameson entrega el Mycoid a un hive ship hiperdictor: en realidad un arma genocida de INRA. Sabotaje en HIP 12099.',
+    note: 'La guerra terminó con un arma biológica, no con negociación.',
+  },
+  {
+    era: 'PRIMERA GUERRA THARGOID',
+    when: '3151',
+    where: 'Frontera humana',
+    who: 'FIN DE LA PRIMERA GUERRA',
+    text: 'Retirada thargoid y «extinción» supuesta; fin del primer conflicto.',
+    note: 'INRA: Intergalactic Naval Reserve Arm.',
+  },
+  {
+    era: 'SEGUNDO CONTACTO',
+    when: '05/01/3303',
+    where: 'Espacio colonizado',
+    who: 'SEGUNDO CONTACTO',
+    text: 'El CMDR DP Sayre sufre la primera hiperdicción registrada: segundo contacto con la especie.',
+    note: 'Los Thargoides reaparecen después de 150 años.',
+  },
+  {
+    era: 'SEGUNDO CONTACTO',
+    when: '04/08/3303',
+    where: '—',
+    who: 'FUNDACIÓN DE AEGIS',
+    text: 'Se funda Aegis: iniciativa conjunta de superpotencias y comunidad científica contra la amenaza Thargoid.',
+    note: 'La organización anti-xeno de referencia.',
+  },
+  {
+    era: 'SEGUNDO CONTACTO',
+    when: 'Sep 3303',
+    where: 'NHSS',
+    who: 'SEGUNDA GUERRA THARGOID',
+    text: 'Comienzan los ataques masivos en las señales NHSS: inicio de la Segunda Guerra Thargoid.',
+    note: 'La guerra abierta de la era moderna.',
+  },
+  {
+    era: 'LA ERA DE SALVATION',
+    when: '07/09/3304',
+    where: 'Cone Sector',
+    who: 'LA GNOSIS',
+    text: 'La Gnosis, la meganave de Canonn, es hiperdictada rumbo a Cone Sector; aparecen los Hydras.',
+    note: 'Canonn sigue siendo nodo de investigación independiente.',
+  },
+  {
+    era: 'LA ERA DE SALVATION',
+    when: '20/09/3307',
+    where: 'Cornsar',
+    who: 'CORNSAR',
+    text: 'Salvation dispara su primera superarma: los Thargoides «desaparecen» de los sistemas afectados.',
+    note: 'Primer uso de tecnología Guardian weaponizada.',
+  },
+  {
+    era: 'LA ERA DE SALVATION',
+    when: '18/01/3308',
+    where: '—',
+    who: 'CAÍDA DE AEGIS',
+    text: 'Aegis se disuelve tras el Baumann Report.',
+    note: 'Salvation queda como única autoridad anti-xeno.',
+  },
+  {
+    era: 'LA ERA DE SALVATION',
+    when: '09–10/08/3308',
+    where: 'HIP 22460',
+    who: 'PROTEUS WAVE',
+    text: 'El Proteus Wave falla en HIP 22460: la contraonda thargoid destruye a la flota humana y a Salvation; los Thargoides ocupan el sitio.',
+    note: 'El arma se basaba en tecnología Guardian: el puente con la entrada de los Guardianes arranca acá.',
+  },
+  {
+    era: 'LOS MAELSTROMS',
+    when: '29/11–15/12/3308',
+    where: 'Ocho sistemas',
+    who: 'LOS MAELSTROMS',
+    text: 'Aparecen los 8 Maelstroms con sus Titanes, bautizados con dioses del trueno: Taranis, Indra, Leigong, Cocijo, Oya, Thor, Raijin y Hadad.',
+    note: 'La guerra cambia de escala: ahora hay objetivos planetarios.',
+  },
+  {
+    era: 'LOS MAELSTROMS',
+    when: '13/02/3309',
+    where: '—',
+    who: 'AEGIS REGRESA',
+    text: 'Aegis vuelve, bajo el mando de Alba Tesreau.',
+    note: 'El error de Salvation queda enterrado en HIP 22460.',
+  },
+  {
+    era: 'LA CAÍDA DE LOS TITANES',
+    when: '3310',
+    where: 'Maelstroms',
+    who: 'CAÍDA DE LOS TITANES',
+    text: 'Caen los 8 Titanes: Taranis 02/03, Leigong 17/03, Oya 21/03, Hadad 26/05, Indra 09/07, Thor 18/08 y Raijin 24/10.',
+    note: 'La Nanite Torpedo Pylon Guardian abre el camino en cada asalto.',
+  },
+  {
+    era: 'LA CAÍDA DE LOS TITANES',
+    when: '28/11/3310',
+    where: 'Sol',
+    who: 'COCIJO MARCHA A SOL',
+    text: 'Cocijo, el último Titán, marcha hacia Sol; llega el 05/12/3310.',
+    note: 'El destino final de la guerra.',
+  },
+  {
+    era: 'LA CAÍDA DE LOS TITANES',
+    when: '18/12/3310',
+    where: 'Sol',
+    who: 'FIN DE LA GUERRA',
+    text: 'Cocijo es destruido sobre Sol; las naves thargoid evacúan por portales. Victoria humana: fin de la Segunda Guerra Thargoid.',
+    note: 'La evacuación por portales sigue sin explicación canónica.',
+  },
+  {
+    era: 'POSTGUERRA',
+    when: '01/3311',
+    where: 'HIP 22460',
+    who: 'TERRITORIO LIBRE',
+    text: 'HIP 22460 se declara libre de Thargoides tras un evento comunitario.',
+    note: 'El sitio del Proteus Wave sigue emitiendo.',
+  },
+  {
+    era: 'POSTGUERRA',
+    when: '18/06/3311',
+    where: 'Sol',
+    who: 'MEMORIAL',
+    text: 'Se instala una baliza conmemorativa sobre el naufragio de Cocijo en Sol.',
+    note: 'Reconstrucción y renovación tras la guerra.',
+  },
+  {
+    era: 'POSTGUERRA',
+    when: '10/06/3312',
+    where: '—',
+    who: 'RADICOIDA UNICA',
+    text: 'GalNet anuncia la Radicoida Unica: «cultivada, no creada, por los Guardianes». Nuevo misterio cruzado entre ambas especies.',
+    note: 'El hilo Guardian-Thargoid sigue abierto.',
+  },
+  {
+    era: 'POSTGUERRA',
+    when: '~09/3312',
+    where: 'Nebulosas',
+    who: 'ESTADO ACTUAL',
+    text: 'Sin guerra activa: NHSS residuales en las nebulosas y cementerios de Titanes como sitios de interés.',
+    note: 'Las mecánicas de guerra —war zones, spire sites— no tienen estado verificado tras el conflicto.',
+  },
+];
+
+// Flatten the entries inserting an era heading whenever the era changes.
+const rows: { type: 'era' | 'entry'; label?: string; entry?: Entry }[] = [];
+let lastEra = '';
+for (const e of entries) {
+  if (e.era !== lastEra) {
+    rows.push({ type: 'era', label: e.era });
+    lastEra = e.era;
+  }
+  rows.push({ type: 'entry', entry: e });
+}
+---
+
+<section id="cronologia">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 02 // REGISTRO CRONOLÓGICO</span>
+      <h2>La historia conocida</h2>
+      <p class="sec-sub">
+        De la Primera Guerra (3125) a la caída de Cocijo sobre Sol (3310): casi dos siglos de contacto, dos guerras y un armisticio en receso.
+      </p>
+    </header>
+
+    <ol class="timeline">
+      {
+        rows.map((r, i) =>
+          r.type === 'era' ? (
+            <li class="timeline-era reveal">
+              <h3>{r.label}</h3>
+            </li>
+          ) : (
+            <li class="timeline-item reveal">
+              <div class="timeline-marker" aria-hidden="true">
+                <span></span>
+              </div>
+              <article class="timeline-card panel">
+                <header class="timeline-head">
+                  <span class="timeline-when">{r.entry!.when}</span>
+                  <span class="timeline-idx">#{String(i + 1).padStart(2, '0')}</span>
+                </header>
+                <p class="timeline-who">{r.entry!.who}</p>
+                <p class="timeline-text">{r.entry!.text}</p>
+                <p class="timeline-note">{r.entry!.where && r.entry!.where !== '—' ? `Dónde: ${r.entry!.where} — ` : ''}{r.entry!.note}</p>
+              </article>
+            </li>
+          )
+        )
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--amber), var(--cyan), transparent);
+    opacity: 0.5;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 2.7rem;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 3px;
+    top: 1.2rem;
+    width: 15px;
+    height: 15px;
+    display: grid;
+    place-items: center;
+  }
+
+  .timeline-marker span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg-deep);
+    border: 2px solid var(--amber);
+    box-shadow: 0 0 10px rgba(255, 158, 0, 0.7);
+  }
+
+  .timeline-card { padding: var(--space-2) var(--space-3); }
+
+  .timeline-card:hover {
+    transform: none;
+    border-color: rgba(102, 204, 255, 0.4);
+    box-shadow: 0 4px 24px rgba(102, 204, 255, 0.1);
+  }
+
+  .timeline-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-1);
+  }
+
+  .timeline-when {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    color: var(--amber-soft);
+  }
+
+  .timeline-idx {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--slate-dim);
+  }
+
+  .timeline-who {
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-text {
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-note {
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  /* Era group heading, styled as a full-width HUD divider */
+  .timeline-era {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding-left: 2.7rem;
+    margin-top: var(--space-3);
+  }
+
+  .timeline-era:first-child {
+    margin-top: 0;
+  }
+
+  .timeline-era::before,
+  .timeline-era::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+  }
+
+  .timeline-era::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 158, 0, 0.5));
+  }
+
+  .timeline-era::after {
+    background: linear-gradient(90deg, rgba(255, 158, 0, 0.5), transparent);
+  }
+
+  .timeline-era h3 {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--amber-soft);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+</style>

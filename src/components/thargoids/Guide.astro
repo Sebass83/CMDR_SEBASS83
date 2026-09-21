@@ -1,0 +1,208 @@
+---
+/**
+ * Guide — field guide for commanders: where to find the Thargoids in
+ * SEP 3312, how to prepare, the heart pattern mechanic, combat tactics
+ * and the Update 18.06 bounty table (still in force after the armistice).
+ */
+
+interface Step {
+  letter: string;
+  title: string;
+  text: string;
+  icon: string;
+}
+
+interface Reward {
+  cls: string;
+  hearts: string;
+  hull: string;
+  swarm: string;
+  speed: string;
+  bounty: string;
+}
+
+const steps: Step[] = [
+  {
+    letter: 'C',
+    title: 'Cómo encontrarlos',
+    text: 'En septiembre de 3312: señales NHSS en las nebulosas Pleiades —a unos 175 LY de Merope—, Witch Head, Coalsack y California; más de 200 Surface Sites; Barnacles productoras de Meta-Alloys; cementerios de Titanes con los restos de los 8; HIP 22460 libre desde 01/3311 con el sitio Proteus aún emitiendo; y el naufragio de Cocijo en Sol con su baliza memorial. Caveat: los Maelstroms desaparecieron del mapa galáctico, y las war zones y spire sites fueron mecánicas de guerra cuyo estado post-guerra no está verificado.',
+    icon: 'C',
+  },
+  {
+    letter: 'P',
+    title: 'Preparación',
+    text: 'Nave AX con armas Guardian o Enhanced AX, Flak Launcher para enjambres y módulos defensivos: Shutdown Field Neutraliser, Caustic Sink Launcher, Xeno Scanner y AFMU. Fundamentos: cold orbiting —silent running, thermal vent y heatsinks por debajo del 20% de calor— para reducir el daño recibido.',
+    icon: 'P',
+  },
+  {
+    letter: 'H',
+    title: 'Patrón de corazones',
+    text: 'Se quita al Interceptor alrededor del 20% de hull para que el corazón se exerte durante una ventana de 20 segundos; se destruye subtargeteado y con el escudo abajo, que se regenera tras cada corazón. Repetir: 4 corazones en Cyclops, 5 en Basilisk, 6 en Medusa y 8 en Hydra.',
+    icon: 'H',
+  },
+  {
+    letter: 'T',
+    title: 'Tácticas',
+    text: 'Cold orbiting para sobrevivir; flak contra los enjambres de Thargons; gauss para los corazones; caustic sink contra las nubes cáusticas; AFMU contra el decay anti-Guardian; y sobrecalentar la nave entre 180% y 220% para quemar lo cáustico adherido.',
+    icon: 'T',
+  },
+  {
+    letter: 'R',
+    title: 'Recompensas',
+    text: 'Créditos por interceptor destruido según la tabla del Update 18.06, vigente a septiembre de 3312; los valores no cambiaron tras el armisticio.',
+    icon: 'R',
+  },
+];
+
+const rewards: Reward[] = [
+  { cls: 'Cyclops', hearts: '4', hull: '800', swarm: '32', speed: '450 m/s', bounty: '8 MCr' },
+  { cls: 'Basilisk', hearts: '5', hull: '1800', swarm: '64', speed: '530 m/s', bounty: '24 MCr' },
+  { cls: 'Medusa', hearts: '6', hull: '2500', swarm: '96', speed: '—', bounty: '40 MCr' },
+  { cls: 'Hydra', hearts: '8', hull: '3200', swarm: '128', speed: '—', bounty: '60 MCr' },
+  { cls: 'Orthrus', hearts: '5', hull: '—', swarm: '—', speed: 'huye', bounty: '15 MCr' },
+];
+---
+
+<section id="guia">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 04 // GUÍA DE CAMPO</span>
+      <h2>Para el commander que quiera ir</h2>
+      <p class="sec-sub">
+        Dónde encontrarlos en septiembre de 3312, cómo prepararse y cómo se derriba un Interceptor corazón por corazón.
+      </p>
+    </header>
+
+    <ol class="order-list">
+      {
+        steps.map((s, i) => (
+          <li class="order-item reveal">
+            <span class="order-idx">{i + 1}</span>
+            <span class="order-letter">{s.letter}</span>
+            <div class="order-body">
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="table-wrap panel rewards reveal">
+      <table>
+        <colgroup>
+          <col style="width: 18%" />
+          <col style="width: 14%" />
+          <col style="width: 14%" />
+          <col style="width: 12%" />
+          <col style="width: 20%" />
+          <col style="width: 22%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Clase</th>
+            <th scope="col">Corazones</th>
+            <th scope="col">Hull</th>
+            <th scope="col">Swarm</th>
+            <th scope="col">Velocidad</th>
+            <th scope="col">Recompensa</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rewards.map((r) => (
+              <tr>
+                <td class="strong">{r.cls}</td>
+                <td>{r.hearts}</td>
+                <td>{r.hull}</td>
+                <td>{r.swarm}</td>
+                <td>{r.speed}</td>
+                <td>{r.bounty}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout reveal" role="note">
+      <span class="callout-ico" aria-hidden="true">↻</span>
+      <p>
+        <strong>ESTADO —</strong> Sin guerra activa desde el 18/12/3310, pero los sistemas de las nebulosas aún guardan NHSS residuales. La mecánica de esta guía está verificada hasta septiembre de 3312; las war zones y spire sites de la guerra no tienen estado confirmado tras el conflicto.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .order-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 820px;
+    margin-inline: auto;
+    margin-bottom: var(--space-3);
+  }
+
+  .order-item {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid rgba(102, 204, 255, 0.18);
+    background: linear-gradient(180deg, var(--bg-panel), var(--bg-panel-2));
+    padding: var(--space-2) var(--space-3);
+    transition: border-color var(--d-fast) ease, box-shadow var(--d-fast) ease;
+  }
+
+  .order-item:hover {
+    border-color: rgba(255, 158, 0, 0.5);
+    box-shadow: 0 0 24px rgba(255, 158, 0, 0.1);
+  }
+
+  .order-idx {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    color: var(--slate-dim);
+  }
+
+  .order-letter {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--amber);
+    color: var(--amber-soft);
+    font-family: var(--font-display);
+    font-weight: 700;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+
+  .order-body h3 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.2rem;
+  }
+
+  .order-body p {
+    color: var(--slate);
+    font-size: 0.92rem;
+  }
+
+  .rewards.table-wrap.panel {
+    padding: 0;
+    border: 1px solid rgba(102, 204, 255, 0.22);
+    max-width: 820px;
+    margin-inline: auto;
+    margin-bottom: var(--space-3);
+  }
+
+  .rewards.table-wrap.panel:hover {
+    transform: none;
+    box-shadow: none;
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+/**
+ * Sources — reference sources for this entry: GalNet articles, the Fandom
+ * wikis, Canonn Science and the community tools (AXI, Inara, EDSM).
+ */
+
+interface Source {
+  name: string;
+  url: string;
+}
+
+const sources: Source[] = [
+  { name: 'GalNet — Titan Cocijo Destroyed, Sol Liberated (18 DIC 3310)', url: 'https://www.elitedangerous.com/news/galnet/titan-cocijo-destroyed-sol-liberated' },
+  { name: 'GalNet — Thargoid War Bulletin: The Last Mothership (25 OCT 3310)', url: 'https://www.elitedangerous.com/news/galnet/thargoid-war-bulletin-the-last-mothership' },
+  { name: 'GalNet — Thargoid Motherships Discovered Within Maelstroms (16 MAY 3309)', url: 'https://www.elitedangerous.com/news/galnet/thargoid-motherships-discovered-within-maelstroms' },
+  { name: 'GalNet — Mysteries of the Thargoids, profesor Palin (17 AGO 3308)', url: 'https://www.elitedangerous.com/news/galnet/mysteries-of-the-thargoids' },
+  { name: 'GalNet — Rebuilding and Renewal After the Thargoid War (18 JUN 3311)', url: 'https://www.elitedangerous.com/news/galnet/rebuilding-and-renewal-after-the-thargoid-war' },
+  { name: 'Elite Dangerous Wiki (Fandom) — Thargoid', url: 'https://elite-dangerous.fandom.com/wiki/Thargoid' },
+  { name: 'Elite Dangerous Wiki (Fandom) — Second Thargoid War', url: 'https://elite-dangerous.fandom.com/wiki/Second_Thargoid_War' },
+  { name: 'Elite Dangerous Wiki (Fandom) — Thargoid Titan', url: 'https://elite-dangerous.fandom.com/wiki/Thargoid_Titan' },
+  { name: 'Canonn Science — UIA Project Cotton Eye (UIA → Maelstroms)', url: 'https://canonn.science/codex/uia-project-cotton-eye/' },
+  { name: 'AXI wiki — Weapons (mecánica de combate)', url: 'https://wiki.antixenoinitiative.com/en/weapons' },
+  { name: 'Inara — Thargoid War Map (0 conflictos ~SEP 3312)', url: 'https://inara.cz/galaxy-thargoidwar/' },
+  { name: 'EDSM — HIP 12099 (misión Jameson / mycoid)', url: 'https://www.edsm.net/en/systems?search=HIP%2012099' },
+];
+---
+
+<section id="fuentes">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 06 // ARCHIVO</span>
+      <h2>Fuentes</h2>
+      <p class="sec-sub">
+        Fuentes principales de esta entrada: GalNet, Fandom, Canonn y las herramientas de la comunidad de comandantes.
+      </p>
+    </header>
+
+    <ul class="sources">
+      {
+        sources.map((s, i) => (
+          <li class="source-item reveal">
+            <span class="source-idx">{String(i + 1).padStart(2, '0')}</span>
+            <a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .sources {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  .source-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: 0.55em 0.8em;
+    border-left: 2px solid rgba(102, 204, 255, 0.25);
+    background: rgba(6, 10, 20, 0.5);
+    transition: border-color var(--d-fast) ease, background var(--d-fast) ease;
+  }
+
+  .source-item:hover {
+    border-left-color: var(--amber);
+    background: rgba(255, 158, 0, 0.05);
+  }
+
+  .source-idx {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--slate-dim);
+    flex-shrink: 0;
+  }
+
+  .source-item a {
+    word-break: break-word;
+    font-size: 0.95rem;
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+/**
+ * Tech — the human arsenal against the Thargoids: from AX-standard weaponry
+ * to the Guardian weapons and the failed Proteus Wave, with the 3312
+ * verdict for each entry.
+ */
+
+interface Row {
+  tech: string;
+  what: string;
+  verdict: string;
+}
+
+const rows: Row[] = [
+  { tech: 'AX Multi-cannon', what: 'Estándar anti-xeno fabricado por Aegis desde 3303; daño bajo contra humanos.', verdict: 'Vigente como arma de base.' },
+  { tech: 'Enhanced AX Multi-cannon', what: 'Alrededor de un 10% más de DPS y proyectiles más rápidos.', verdict: 'La mejora más usada en campo.' },
+  { tech: 'AX Missiles (Enhanced / Sirius)', what: 'Mayor daño por proyectil; eficaces contra escudos.', verdict: 'Situacionales, útiles contra objetivos grandes.' },
+  { tech: 'Armas Guardian (Technology Brokers)', what: 'Gauss Cannon contra corazones —genera mucho calor—, Shard Cannon de corto alcance y Plasma Charger cargable.', verdict: 'La ventaja humana histórica.' },
+  { tech: 'Guardian Nanite Torpedo Pylon', what: 'Arma clave para destruir las heat vents de un Titan.', verdict: 'Sin objetivos desde la caída de Cocijo.' },
+  { tech: 'Módulos defensivos', what: 'Shutdown Field Neutraliser, Caustic Sink Launcher, Thargoid Pulse Neutraliser, Xeno Scanner para subtargetear corazones, Flak Launcher contra enjambres y AFMU contra el decay anti-Guardian.', verdict: 'Obligatorios para cazar Interceptors.' },
+  { tech: 'Proteus Wave', what: 'Tecnología Guardian weaponizada por Salvation como arma anti-Maelstrom; falló en HIP 22460.', verdict: 'Fallo catastrófico; nunca fue operativa.' },
+  { tech: 'Habilidades Thargoid', what: 'Shutdown fields, misiles cáusticos y de enzimas, rayos, FSD disrupt, campo anti-Guardian, enjambres de Thargons y «enrage» si se tarda en destruir el siguiente corazón.', verdict: 'Conocerlas es la mitad de la batalla.' },
+];
+---
+
+<section id="tecnologia">
+  <div class="container">
+    <header class="sec-head reveal">
+      <span class="sec-code">SECCIÓN 03 // TECNOLOGÍA Y ARSENAL</span>
+      <h2>Arsenal y tecnología</h2>
+      <p class="sec-sub">
+        Del armamento AX al Proteus Wave fallido: cómo peleó la humanidad y las habilidades que la especie usó en respuesta.
+      </p>
+    </header>
+
+    <div class="table-wrap panel reveal">
+      <table>
+        <colgroup>
+          <col style="width: 34%" />
+          <col style="width: 38%" />
+          <col style="width: 28%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Tecnología</th>
+            <th scope="col">Qué hace</th>
+            <th scope="col">Veredicto en 3312</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rows.map((r) => (
+              <tr>
+                <td class="strong">{r.tech}</td>
+                <td>{r.what}</td>
+                <td>{r.verdict}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .table-wrap.panel {
+    padding: 0;
+    border: 1px solid rgba(102, 204, 255, 0.22);
+  }
+
+  .table-wrap.panel:hover {
+    transform: none;
+    box-shadow: none;
+  }
+</style>
