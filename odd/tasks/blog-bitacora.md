@@ -33,8 +33,9 @@
 - **Assessment nativo (RDD on)**: `gentle-ai review assess` → risk `medium`, `review_due=true` (slice_budget_reached, 3764 líneas).
 - **Status nativo (preflight)**: falló seguro `operation_failed` pre_native — RAR no puede validar el filesystem del repo sobre UNC WSL ("unknown filesystem; cannot assume NTFS semantics"). Retry de una sola vez vía WSL: binario `gentle-ai` no instalado en el distro. Resultado typed preservado; **review nativo NO disponible en este entorno** (limitación de entorno, no defecto de Gentle AI: fallo seguro, sin mutación, retry-safe). No se inventó PASS ni se relanzó el ciclo.
 - **Commit de work-unit**: `4578460` en branch `feat/blog-bitacora` — "feat: restructure site into CMDR SEBASS83 commander log blog" (21 archivos, 1656 insertions/34 deletions; renames 100% detectados).
+- **URL final**: repo renombrado por el usuario a `Sebass83/CMDR_SEBASS83`; `astro.config.mjs` base → `/CMDR_SEBASS83/` (commit `dc9f027` en `feat/pages-url`, merge ff a main); remote actualizado a `git@github.com:Sebass83/CMDR_SEBASS83.git`; push OK. Sitio: `https://sebass83.github.io/CMDR_SEBASS83/`.
 
 ## Próximo paso
 
-- Push/merge → decisión del usuario (deploy a GitHub Pages corre por workflow en push a main).
+- Verificar deploy en la URL nueva.
 - Luego: completar el bloque "sobre el commander" con bio real; próximas entradas = nuevo `.mdx` en `src/content/blog/`.
