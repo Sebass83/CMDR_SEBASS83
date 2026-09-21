@@ -21,11 +21,14 @@
 - [x] **T5** Layout (header nav sticky), Footer (anclas → `BASE_URL blog/raxxla/#...`), `global.css` (`.prose` HUD con tablas contenidas). Check: build verde.
 - [x] **T6** Verificación final: `npm install` + `npm run build` → `2 page(s) built in 2.99s`; `dist/index.html` y `dist/blog/raxxla/index.html` generados.
 - [x] **T7** Entrada 002 — Guardianes: investigación (worker, sep 2026); v1 markdown `.prose` → revisión del usuario ("no respeta el diseño RAXXLA") → rediseño completo con componentes HUD en `src/components/guardianes/` (Hero + Facts + Timeline + Tech + Guide + Mysteries + Sources) espejando `src/components/raxxla/`; numeración de entradas agregada al schema (`entry` en content.config.ts, PostHeader usa `entry ?? index`; RAXXLA entry 1, Guardianes entry 2). Check: build verde (3 páginas) x3.
+- [x] **T8** Entrada 003 — Thargoides: investigación worker con fuentes (memoria `investigacion/thargoides`, sep 2026); ángulo "Mixto" elegido por el usuario; componentes HUD en `src/components/thargoids/` (Hero + Facts + Timeline + Tech + Guide + Mysteries + Sources; Timeline con 19 entradas agrupadas en 6 eras; tabla de recompensas Update 18.06); `entry: 3` en `src/content/blog/thargoides.mdx`; cierre enlaza a Guardianes vía `BASE_URL`. Check: build verde (4 páginas) x2 + spot check del padre (9 containers, sin voseo, ENTRADA 003, link BASE_URL). Commit `27747d3` en branch `feat/entrada-thargoides`.
 
 ## Rutas
 
 - T1–T6: **delegado** a un writer `general` (bounded writer, un único hilo). Evidence: 12+ archivos tocados (writer trigger).
+- T7–T8: **delegado** a writers `general` (rediseño Guardianes y entrada Thargoides; writer + mapping triggers por 8–12 archivos).
 - TDD: no hay infraestructura de tests → TDD off; cheque funcional = `npm run build` (exact command). Source of mode: proyecto sin test runner.
+- RDD (T8): `gentle-ai review assess` no disponible en este entorno (binario ausente / UNC WSL) → tier registrado como **unavailable**, nunca baja de tier; verificación = checkpoint estructural del padre (paridad de containers en dist) + spot check.
 
 ## Progreso / evidencia
 
@@ -36,8 +39,11 @@
 - **Commit de work-unit**: `4578460` en branch `feat/blog-bitacora` — "feat: restructure site into CMDR SEBASS83 commander log blog" (21 archivos, 1656 insertions/34 deletions; renames 100% detectados).
 - **URL final**: repo renombrado por el usuario a `Sebass83/CMDR_SEBASS83`; `astro.config.mjs` base → `/CMDR_SEBASS83/` (commit `dc9f027` en `feat/pages-url`, merge ff a main); remote actualizado a `git@github.com:Sebass83/CMDR_SEBASS83.git`; push OK. Sitio: `https://sebass83.github.io/CMDR_SEBASS83/`.
 - **Entrada Guardianes (T7)**: investigación worker con fuentes (memoria `investigacion/guardianes`); v1 markdown publicada (commit `1dd257f`), luego rediseño a componentes HUD (branch `feat/guardianes-hud`): `Hero` (kicker COMANDER LOG // ENTRADA 002, typewriter, toast Ram Tah, badges, radar), `Facts`, `Timeline` (8 entries, incluye Proteus Wave), `Tech` (tabla matriz 8 filas), `Guide` (pasos R/M/A/B/N + callout materiales), `Mysteries` (5 cards), `Sources` (7 fuentes); `entry` del schema para numeración coherente (RAXXLA 001, Guardianes 002).
+- **Convención aprobada por el usuario (2026-09-21)**: entrada Guardianes "se ve de 10" (el "100% de ancho" era caché del navegador con la v1, no el deploy — verificado: ambas páginas en dist tienen 9 `.container` centrados). **TODAS las próximas entradas deben mantener el estilo HUD de componentes**: set espejo en `src/components/<tema>/`, campo `entry` (RAXXLA 001, Guardianes 002, siguiente 003...), kicker ENTRADA // 00N, todo dentro de `.container` centrado (1120px), tablas con `table-wrap`, español neutro sin voseo.
+- **Entrada Thargoides (T8)**: investigación worker con fuentes (memoria `investigacion/thargoides`; GalNet oficial, Fandom, Canonn, AXI, Inara, EDSM — URLs verificadas por el worker); ángulo Mixto; componentes `src/components/thargoids/*` espejo exacto de Guardianes (mismo markup/CSS scoped, typewriter/reveal/radar globales intactos); commit `27747d3` en `feat/entrada-thargoides` (+1252 líneas, 8 archivos). Verificación padre: build 4 páginas, 9 containers, 2 table-wrap, sin voseo, ENTRADA 003, link BASE_URL a Guardianes. Pendiente: decisión del usuario de publicar (merge ff + push vía WSL).
 
 ## Próximo paso
 
-- Verificar deploy en la URL nueva.
-- Luego: completar el bloque "sobre el commander" con bio real; próximas entradas = nuevo `.mdx` en `src/content/blog/`.
+- Publicar entrada Thargoides (decisión del usuario): merge ff de `feat/entrada-thargoides` a main + push vía WSL → deploy automático.
+- Pendiente: completar el bloque "sobre el commander" con bio real.
+- Siguiente entrada: investigación + set de componentes espejo (patrón Guardianes/Thargoides) con `entry: 4`.
