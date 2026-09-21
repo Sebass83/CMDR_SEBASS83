@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = 'RAXXLA — El misterio de Elite Dangerous',
-  description = 'Referencia no oficial del mayor misterio de Elite Dangerous: hechos confirmados, declaraciones oficiales, leads activos con coordenadas, matriz de decisión y plan de ataque.',
+  title = 'CMDR SEBASS83 — Bitácora de navegación',
+  description = 'Bitácora de navegación e investigación independiente de CMDR SEBASS83: expediciones, señales anómalas y la búsqueda documentada de RAXXLA en Elite Dangerous.',
 } = Astro.props;
 ---
 
@@ -34,6 +34,13 @@ const {
     <canvas id="starfield" aria-hidden="true"></canvas>
     <div class="scanlines" aria-hidden="true"></div>
 
+    <nav class="topnav" aria-label="Principal">
+      <div class="container topnav-inner">
+        <a class="topnav-brand" href={`${import.meta.env.BASE_URL}`}>CMDR SEBASS83</a>
+        <a class="topnav-link" href={`${import.meta.env.BASE_URL}`}>Bitácora</a>
+      </div>
+    </nav>
+
     <main id="top">
       <slot />
     </main>
@@ -43,3 +50,58 @@ const {
     <script src="../scripts/typewriter.js"></script>
   </body>
 </html>
+
+<style>
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(5, 7, 13, 0.82);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(102, 204, 255, 0.25);
+  }
+
+  .topnav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.7rem;
+  }
+
+  .topnav-brand {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber-soft);
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .topnav-brand:hover {
+    color: var(--amber);
+    border-bottom: none;
+  }
+
+  .topnav-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(102, 204, 255, 0.4);
+    padding-bottom: 0.15em;
+  }
+
+  .topnav-link:hover {
+    color: var(--cyan);
+    border-bottom-color: var(--amber);
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+  }
+</style>

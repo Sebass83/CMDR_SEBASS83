@@ -1,0 +1,68 @@
+---
+/**
+ * Blog entry — detail page for a single commander log post.
+ * Static paths come from the content collection (non-draft, pubDate DESC);
+ * `index` is the 1-based position in that DESC list, zero-padded to 3 digits.
+ * `prev` is the older entry, `next` the newer one (reading order).
+ */
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import PostHeader from '../../components/blog/PostHeader.astro';
+import BlogNav from '../../components/blog/BlogNav.astro';
+
+interface PostRef {
+  slug: string;
+  title: string;
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  index: number;
+  prev?: PostRef;
+  next?: PostRef;
+}
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((post) => !post.data.draft);
+  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  return posts.map((post, i) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      index: i + 1,
+      prev: posts[i + 1] ? { slug: posts[i + 1].slug, title: posts[i + 1].data.title } : undefined,
+      next: posts[i - 1] ? { slug: posts[i - 1].slug, title: posts[i - 1].data.title } : undefined,
+    },
+  }));
+}
+
+const { post, index, prev, next } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={`${post.data.title} · CMDR SEBASS83`} description={post.data.description}>
+  <div class="entry-wrap">
+    <PostHeader post={post} index={index} />
+
+    <article class="prose">
+      <Content />
+    </article>
+
+    <BlogNav prev={prev} next={next} />
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  .entry-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-block: var(--space-4);
+  }
+</style>

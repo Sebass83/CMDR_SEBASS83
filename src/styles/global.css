@@ -529,3 +529,197 @@ section {
 
   .scanlines { display: none; }
 }
+
+/* ---------- Prose (markdown entry content) ---------- */
+/* Applies to <Content /> output in blog entries. Selectors are scoped to
+   direct children so rendered section components (sec-head, panels, the
+   Matrix table, …) keep their own styles. */
+.prose {
+  color: var(--white);
+}
+
+.prose > h2,
+.prose > h3,
+.prose > h4 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.prose > h2 {
+  font-size: clamp(1.25rem, 3.2vw, 1.7rem);
+  font-weight: 700;
+  color: var(--amber-soft);
+  margin-top: var(--space-4);
+  text-shadow: 0 0 24px rgba(255, 158, 0, 0.35);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.prose > h2::after {
+  content: '';
+  height: 1px;
+  width: clamp(2rem, 8vw, 4.5rem);
+  background: linear-gradient(90deg, var(--amber), transparent);
+}
+
+.prose > h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-top: var(--space-3);
+}
+
+.prose > h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: var(--space-2);
+}
+
+.prose > p {
+  color: rgba(232, 237, 246, 0.92);
+  font-size: 1.02rem;
+  max-width: 72ch;
+}
+
+.prose > p + p {
+  margin-top: var(--space-2);
+}
+
+.prose > ul,
+.prose > ol {
+  color: var(--slate);
+  padding-left: 1.5em;
+  max-width: 72ch;
+}
+
+.prose > ul > li + li,
+.prose > ol > li + li {
+  margin-top: 0.45em;
+}
+
+.prose > blockquote {
+  border-left: 2px solid var(--amber);
+  padding-left: var(--space-3);
+  color: var(--slate);
+  font-style: italic;
+  max-width: 62ch;
+  margin-top: var(--space-2);
+}
+
+.prose > blockquote footer {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--cyan-dim);
+  margin-top: var(--space-1);
+}
+
+.prose > pre {
+  margin-top: var(--space-2);
+  background: rgba(6, 10, 20, 0.85);
+  border: 1px solid rgba(102, 204, 255, 0.22);
+  padding: var(--space-2) var(--space-3);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.prose > pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--white);
+}
+
+.prose > p code,
+.prose > li code,
+.prose > blockquote code,
+.prose > td code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--amber-soft);
+  background: rgba(255, 158, 0, 0.08);
+  border: 1px solid rgba(255, 158, 0, 0.25);
+  padding: 0.12em 0.4em;
+}
+
+.prose > hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(102, 204, 255, 0.4), transparent);
+  margin-block: var(--space-4);
+}
+
+.prose > img {
+  border: 1px solid rgba(102, 204, 255, 0.22);
+  max-width: 100%;
+}
+
+/* Tables — contained scrolling so long content never stretches the page
+   horizontally. Raw markdown tables scroll inside the table element itself;
+   authors may also wrap tables in a .table-wrap div for the same behavior. */
+.prose > table,
+.prose > .table-wrap {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(102, 204, 255, 0.22);
+  background: rgba(6, 10, 20, 0.7);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 204, 255, 0.35) transparent;
+  margin-top: var(--space-2);
+}
+
+.prose > table,
+.prose > .table-wrap > table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  table-layout: auto;
+}
+
+.prose > table th,
+.prose > table td,
+.prose > .table-wrap th,
+.prose > .table-wrap td {
+  text-align: left;
+  padding: 0.7em 0.9em;
+  border-bottom: 1px solid rgba(102, 204, 255, 0.12);
+  vertical-align: top;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.prose > table thead th,
+.prose > .table-wrap thead th {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber-soft);
+  background: rgba(255, 158, 0, 0.06);
+  white-space: normal;
+}
+
+.prose > table tbody td,
+.prose > .table-wrap tbody td {
+  color: var(--slate);
+}
+
+.prose > table tbody tr:hover,
+.prose > .table-wrap tbody tr:hover {
+  background: rgba(102, 204, 255, 0.05);
+}
+
+@media (max-width: 720px) {
+  .prose > table,
+  .prose > .table-wrap {
+    margin-inline: calc(var(--space-1) * -1);
+  }
+}

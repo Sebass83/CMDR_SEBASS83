@@ -1,0 +1,88 @@
+---
+/**
+ * PostHeader — article header for a blog entry detail page.
+ * Kicker, title and a date + tags row in HUD section style.
+ */
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  index: number;
+}
+
+const { post, index } = Astro.props;
+
+const paddedIndex = String(index).padStart(3, '0');
+const pubDate = new Intl.DateTimeFormat('es-ES', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(post.data.pubDate);
+---
+
+<header class="post-header reveal">
+  <span class="post-header-kicker">ENTRADA // {paddedIndex}</span>
+  <h1 class="post-header-title">{post.data.title}</h1>
+  <div class="post-header-meta">
+    <time class="post-header-date" datetime={post.data.pubDate.toISOString()}>{pubDate}</time>
+    <ul class="post-header-tags">
+      {
+        post.data.tags.map((tag) => (
+          <li><span class="badge badge-slate">{tag}</span></li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<style>
+  .post-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+  }
+
+  .post-header-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--cyan-dim);
+  }
+
+  .post-header-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+    letter-spacing: 0.14em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--amber-soft);
+    text-shadow: 0 0 24px rgba(255, 158, 0, 0.35);
+  }
+
+  .post-header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .post-header-date {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    color: var(--slate);
+  }
+
+  .post-header-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+</style>
