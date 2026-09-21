@@ -54,15 +54,60 @@ const posts = (await getCollection('blog'))
       <header class="sec-head reveal">
         <span class="sec-code">SECCIÓN 00 // IDENTIDAD</span>
         <h2>Sobre el commander</h2>
-        <p class="sec-sub">Identidad, trayectoria y motivación de navegación. Contenido pendiente de redactar.</p>
+        <p class="sec-sub">Registro de identidad del comandante: foto carnet y datos de archivo de vuelo.</p>
       </header>
 
-      <div class="panel about-panel reveal">
-        <span class="panel-tag">CONTENIDO PENDIENTE</span>
-        <p>
-          Este bloque es un marcador: se completará más adelante con la presentación de CMDR SEBASS83,
-          su flota, sus expediciones destacadas y la motivación detrás de esta bitácora.
-        </p>
+      <div class="id-card panel reveal">
+        <header class="id-head">
+          <span class="id-kicker">REGISTRO DE PILOTO // IDENTIFICACIÓN</span>
+          <span class="badge badge-amber"><span class="dot"></span>IDENTIFICACIÓN ACTIVA</span>
+        </header>
+
+        <div class="id-grid">
+          <figure class="id-photo">
+            <img
+              src={import.meta.env.BASE_URL + 'cmdr_sebass83.png'}
+              alt="Fotografía de identificación de CMDR SEBASS83"
+              width="896"
+              height="1195"
+              loading="lazy"
+            />
+            <figcaption>FOTO // CARNET</figcaption>
+            <span class="id-scanline" aria-hidden="true"></span>
+          </figure>
+
+          <dl class="id-fields">
+            <div class="id-field">
+              <dt>NOMBRE</dt>
+              <dd>CMDR SEBASS83</dd>
+            </div>
+            <div class="id-field">
+              <dt>RAZA</dt>
+              <dd>HUMANO</dd>
+            </div>
+            <div class="id-field">
+              <dt>GÉNERO</dt>
+              <dd>MASCULINO</dd>
+            </div>
+            <div class="id-field">
+              <dt>NACIMIENTO</dt>
+              <dd>3269</dd>
+            </div>
+            <div class="id-field">
+              <dt>ALIANZA</dt>
+              <dd>DARK WHEEL · FEDERACIÓN · OTROS</dd>
+            </div>
+            <div class="id-field">
+              <dt>HORAS DE VUELO</dt>
+              <dd>~810 HS</dd>
+            </div>
+          </dl>
+        </div>
+
+        <footer class="id-foot">
+          <span>— CMDR SEBASS83 // REGISTRO DE VUELO</span>
+          <span>ARCHIVO ABIERTO // 3312</span>
+        </footer>
       </div>
     </div>
   </section>
@@ -201,9 +246,130 @@ const posts = (await getCollection('blog'))
     white-space: nowrap;
   }
 
-  .about-panel {
-    max-width: 720px;
+  .id-card {
+    max-width: 760px;
     margin-inline: auto;
+  }
+
+  .id-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .id-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cyan-dim);
+  }
+
+  .id-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-3);
+    align-items: start;
+  }
+
+  .id-photo {
+    position: relative;
+    margin: 0;
+    border: 1px solid rgba(102, 204, 255, 0.45);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    background: #0a0e14;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .id-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85) contrast(1.05);
+  }
+
+  .id-scanline {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0 3px,
+      rgba(102, 204, 255, 0.05) 3px 4px
+    );
+    mix-blend-mode: screen;
+  }
+
+  .id-photo figcaption {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.26em;
+    color: var(--amber);
+    background: rgba(5, 8, 12, 0.72);
+    padding: 2px 6px;
+    border-left: 2px solid var(--amber);
+  }
+
+  .id-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+  }
+
+  .id-field {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--space-2);
+    padding-bottom: var(--space-1);
+    border-bottom: 1px dashed rgba(232, 237, 246, 0.12);
+  }
+
+  .id-field dt {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cyan-dim);
+    padding-top: calc(var(--space-1) / 2);
+  }
+
+  .id-field dd {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .id-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-1);
+    margin-top: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cyan-dim);
+  }
+
+  @media (max-width: 640px) {
+    .id-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .id-photo {
+      max-width: 260px;
+    }
   }
 
   .entries-grid {
