@@ -35,6 +35,7 @@
 - **Status nativo (preflight)**: falló seguro `operation_failed` pre_native — RAR no puede validar el filesystem del repo sobre UNC WSL ("unknown filesystem; cannot assume NTFS semantics"). Retry de una sola vez vía WSL: binario `gentle-ai` no instalado en el distro. Resultado typed preservado; **review nativo NO disponible en este entorno** (limitación de entorno, no defecto de Gentle AI: fallo seguro, sin mutación, retry-safe). No se inventó PASS ni se relanzó el ciclo.
 - **Commit de work-unit**: `4578460` en branch `feat/blog-bitacora` — "feat: restructure site into CMDR SEBASS83 commander log blog" (21 archivos, 1656 insertions/34 deletions; renames 100% detectados).
 - **URL final**: repo renombrado por el usuario a `Sebass83/CMDR_SEBASS83`; `astro.config.mjs` base → `/CMDR_SEBASS83/` (commit `dc9f027` en `feat/pages-url`, merge ff a main); remote actualizado a `git@github.com:Sebass83/CMDR_SEBASS83.git`; push OK. Sitio: `https://sebass83.github.io/CMDR_SEBASS83/`.
+- **Entrada Guardianes (T7)**: investigación worker con fuentes (memoria `investigacion/guardianes`); `src/content/blog/guardianes.mdx` mixto (crónica + guía práctica, tablas contenidas, link interno a RAXXLA con `BASE_URL`); build verde 3 páginas; commit `1dd257f` en `feat/entrada-guardianes`.
 
 ## Próximo paso
 
