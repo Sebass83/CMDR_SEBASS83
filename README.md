@@ -1,14 +1,11 @@
-# RAXXLA — El misterio de Elite Dangerous
+# CMDR SEBASS83 — Bitácora de navegación
 
-Referencia no oficial del mayor misterio de Elite Dangerous: RAXXLA. Página estática generada con **Astro**, con estética HUD inspirada en el juego y animaciones.
+Bitácora personal tipo commander log, generada con **Astro**, con estética HUD inspirada en Elite Dangerous. Contiene la investigación de RAXXLA como primera entrada.
 
 ## Contenido
 
-- Hechos confirmados (declaraciones oficiales)
-- Línea de tiempo de declaraciones de Frontier Developments
-- Leads activos A–I con coordenadas
-- Matriz de decisión y orden de ataque
-- Fuentes de la investigación
+- Landing con últimas entradas del blog
+- Entrada: RAXXLA — el misterio más grande de Elite Dangerous (hechos confirmados, cronología, leads, matriz de decisión, orden de ataque, fuentes)
 
 ## Desarrollo
 
@@ -21,7 +18,7 @@ npm run preview    # servir el build
 
 ## Despliegue
 
-GitHub Pages vía GitHub Actions (`.github/workflows/deploy.yml`). Cada push a `main` construye y publica en `https://sebass83.github.io/raxxla-web/`.
+GitHub Pages vía GitHub Actions (`.github/workflows/deploy.yml`). Cada push a `main` construye y publica en `https://sebass83.github.io/CMDR_SEBASS83/`.
 
 ## Disclaimer
 
