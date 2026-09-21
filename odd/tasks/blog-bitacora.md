@@ -22,6 +22,7 @@
 - [x] **T6** Verificación final: `npm install` + `npm run build` → `2 page(s) built in 2.99s`; `dist/index.html` y `dist/blog/raxxla/index.html` generados.
 - [x] **T7** Entrada 002 — Guardianes: investigación (worker, sep 2026); v1 markdown `.prose` → revisión del usuario ("no respeta el diseño RAXXLA") → rediseño completo con componentes HUD en `src/components/guardianes/` (Hero + Facts + Timeline + Tech + Guide + Mysteries + Sources) espejando `src/components/raxxla/`; numeración de entradas agregada al schema (`entry` en content.config.ts, PostHeader usa `entry ?? index`; RAXXLA entry 1, Guardianes entry 2). Check: build verde (3 páginas) x3.
 - [x] **T8** Entrada 003 — Thargoides: investigación worker con fuentes (memoria `investigacion/thargoides`, sep 2026); ángulo "Mixto" elegido por el usuario; componentes HUD en `src/components/thargoids/` (Hero + Facts + Timeline + Tech + Guide + Mysteries + Sources; Timeline con 19 entradas agrupadas en 6 eras; tabla de recompensas Update 18.06); `entry: 3` en `src/content/blog/thargoides.mdx`; cierre enlaza a Guardianes vía `BASE_URL`. Check: build verde (4 páginas) x2 + spot check del padre (9 containers, sin voseo, ENTRADA 003, link BASE_URL). Commit `27747d3` en branch `feat/entrada-thargoides`.
+- [x] **T9** Bloque "Sobre el commander" (`#sobre`): tarjeta de identificación HUD con foto carnet `public/cmdr_sebass83.png` (896×1195, PNG provisto por el usuario el 2026-09-21) + datos de registro provistos: NOMBRE CMDR SEBASS83, RAZA HUMANO, GÉNERO MASCULINO, NACIMIENTO 3269, ALIANZA DARK WHEEL · FEDERACIÓN · OTROS, HORAS DE VUELO ~810 HS; reemplazó el placeholder "CONTENIDO PENDIENTE" en `src/pages/index.astro` (markup + CSS scoped `.id-card`/`.id-photo`/`.id-fields`; scanlines, corner-cut 3:4, badge IDENTIFICACIÓN ACTIVA; móvil colapsa a 1 columna). Check: build verde (4 páginas) + spot check (imagen en dist 2.1MB, campos presentes, sin voseo). Commit `6ae9c6d` en main (listo para publicar; push pendiente de OK del usuario).
 
 ## Rutas
 
@@ -42,8 +43,11 @@
 - **Convención aprobada por el usuario (2026-09-21)**: entrada Guardianes "se ve de 10" (el "100% de ancho" era caché del navegador con la v1, no el deploy — verificado: ambas páginas en dist tienen 9 `.container` centrados). **TODAS las próximas entradas deben mantener el estilo HUD de componentes**: set espejo en `src/components/<tema>/`, campo `entry` (RAXXLA 001, Guardianes 002, siguiente 003...), kicker ENTRADA // 00N, todo dentro de `.container` centrado (1120px), tablas con `table-wrap`, español neutro sin voseo.
 - **Entrada Thargoides (T8)**: investigación worker con fuentes (memoria `investigacion/thargoides`; GalNet oficial, Fandom, Canonn, AXI, Inara, EDSM — URLs verificadas por el worker); ángulo Mixto; componentes `src/components/thargoids/*` espejo exacto de Guardianes (mismo markup/CSS scoped, typewriter/reveal/radar globales intactos); commit `27747d3` en `feat/entrada-thargoides` (+1252 líneas, 8 archivos). Verificación padre: build 4 páginas, 9 containers, 2 table-wrap, sin voseo, ENTRADA 003, link BASE_URL a Guardianes. **Publicada (2026-09-21)**: merge ff a main + push vía WSL (`836a82a..e6cb17b`); URL `https://sebass83.github.io/CMDR_SEBASS83/blog/thargoides/`.
 
+- **Bloque identificación (T9, 2026-09-21)**: usuario aportó foto carnet (`public/cmdr_sebass83.png`) + datos (raza humano, género masculino, nacimiento 3269, aliados Dark Wheel y Federación entre otros, ~810 hs de vuelo). Tarjeta ID HUD en `#sobre` (`.id-card` scoped en index.astro, grid foto 240px + campos, caption "FOTO // CARNET", footer "REGISTRO DE VUELO // ARCHIVO ABIERTO 3312"). Build 4 páginas verde; imagen en dist; sin voseo; commit `6ae9c6d`.
+
 ## Próximo paso
 
 - Entrada Thargoides publicada (2026-09-21).
-- Pendiente: completar el bloque "sobre el commander" con bio real.
+- **Bloque identificación listo localmente (commit `6ae9c6d`) — publicar pendiente de OK del usuario (push vía WSL).**
+- Pendiente (opcional): texto corto de presentación/motivación bajo la tarjeta si el usuario lo quiere.
 - Siguiente entrada: investigación + set de componentes espejo (patrón Guardianes/Thargoides) con `entry: 4`.
